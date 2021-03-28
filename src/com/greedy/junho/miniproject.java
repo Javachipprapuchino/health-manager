@@ -24,7 +24,6 @@ public class miniproject extends JFrame {
 
 	public void project() {
 
-//		쿄쿄쿄쿄ㅛ쿄
 
 //		------------------------------------------------------------------
 
