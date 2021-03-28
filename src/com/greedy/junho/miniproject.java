@@ -24,7 +24,7 @@ public class miniproject extends JFrame {
 
 	public void project() {
 
-		/* Layout지정 없이 위치 지정하면서 배치하는 방법 */
+//		쿄쿄쿄쿄ㅛ쿄
 
 //		------------------------------------------------------------------
 
@@ -47,8 +47,10 @@ public class miniproject extends JFrame {
 		};
 
 //    		------------------------------------------------------------------
+		/* Layout지정 없이 위치 지정하면서 배치하는 방법 */
 		background.setLayout(null);
 
+//		상단 라벨
 		JLabel lb = new JLabel("초급 운동 리스트");
 		lb.setLocation(50, 30);
 		lb.setSize(100, 50);
