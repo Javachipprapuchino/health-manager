@@ -78,7 +78,7 @@ public class defaultGUIkyj {
 		
 		
 		
-		//프레임에 버튼 추가
+		//프레임에 버튼 추가하기
 		frm.add(basic);
 		frm.add(normal);
 		frm.add(hard);
