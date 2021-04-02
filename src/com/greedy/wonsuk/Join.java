@@ -30,7 +30,7 @@ public class Join extends JFrame {
 		panel.add(password);
 		
 		JLabel confirm = new JLabel("비밀번호확인");
-		confirm.setBounds(69, 210, 64, 20);
+		confirm.setBounds(69, 210, 90, 20);
 		panel.add(confirm);
 		
 		JLabel username = new JLabel("닉네임");
