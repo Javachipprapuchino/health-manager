@@ -16,7 +16,7 @@ public class defaultGUIkyj {
 		JFrame frm = new JFrame("난이도 선택");
 		
 		//프레임 크기 설정
-		frm.setSize(820, 500);
+		frm.setSize(350, 550);
 		
 		//창 화면을 가운데 띄우기
 		frm.setLocationRelativeTo(null);
@@ -35,9 +35,9 @@ public class defaultGUIkyj {
 		JButton hard = new JButton(hardCon);
 		
 		//버튼 위치와 크기생성
-		basic.setBounds(50, 120, 200, 180);
-		normal.setBounds(300, 120, 200, 180);
-		hard.setBounds(550, 120, 200, 180);
+		basic.setBounds(45, 200, 250, 50);
+		normal.setBounds(45, 280, 250, 50);
+		hard.setBounds(45, 360, 250, 50);
 		
 		//초급 버튼이 눌렸을 때
 		basic.addActionListener(new ActionListener() {
@@ -70,8 +70,8 @@ public class defaultGUIkyj {
 		Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 		
 		//운동강도 선택 라벨
-		JLabel title = new JLabel("운동강도를 선택해 주세요.");
-		title.setBounds(235, 50, 500, 50);
+		JLabel title = new JLabel("운동강도 선택");
+		title.setBounds(75, 50, 500, 50);
 		title.setFont(font);
 
 	
