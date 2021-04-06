@@ -1,6 +1,7 @@
 package com.greedy.yujin;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,6 +39,12 @@ public class defaultGUIkyj {
 		basic.setBounds(45, 200, 250, 50);
 		normal.setBounds(45, 280, 250, 50);
 		hard.setBounds(45, 360, 250, 50);
+		
+		//배경이미지
+		Image backimg = new ImageIcon("icon/background.png").getImage();
+		JLabel back = new JLabel(new ImageIcon(backimg));
+		back.setBounds(0,0,350,550);
+		
 		
 		//초급 버튼이 눌렸을 때
 		basic.addActionListener(new ActionListener() {
@@ -83,7 +90,8 @@ public class defaultGUIkyj {
 		frm.add(normal);
 		frm.add(hard);
 		frm.add(title);
-		
+		frm.add(back);
+
 		
 		
 		frm.setVisible(true);
