@@ -8,6 +8,7 @@ public class Applicationrun {
 		
 		//new Join();
 		
+		DataDAO dataDAO = new DataDAO();
 	}
 
 }

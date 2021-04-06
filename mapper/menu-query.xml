@@ -3,14 +3,17 @@
 <properties> 
     <entry key="insertData">
         INSERT 
-          INTO TBL_MENU A
-        (
+          INTO MINIPRO A
+        ( 
+          A.USER_CODE
+        , A.USER_ID
+        , A.USER_PWD
+        , A.USER_NICKNAME 
           
         )
     	VALUES
     	(
     	  SEQ_MENU_CODE.NEXTVAL
-    	, ?
     	, ?
     	, ?
     	, ?
