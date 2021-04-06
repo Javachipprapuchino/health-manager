@@ -49,7 +49,7 @@ public Login() {
 		Password.setBounds(157, 403, 176, 35);
 		panel.add(Password);
 		
-		Image backimg = new ImageIcon("icon/로그인.png").getImage().getScaledInstance(500, 800, 0);
+		Image backimg = new ImageIcon("icon/로그인.png").getImage();
 		JLabel back = new JLabel(new ImageIcon(backimg));
 		back.setBounds(0,0,400,600);
 		

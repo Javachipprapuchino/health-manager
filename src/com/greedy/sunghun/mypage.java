@@ -12,7 +12,7 @@ public class mypage extends JFrame {
 	public mypage() {
 		
 		
-		Dimension dim = new Dimension(330, 400);  //단순 2차원값 입력을 위한 클래스
+		Dimension dim = new Dimension(350, 550);  //단순 2차원값 입력을 위한 클래스
         JFrame frame = new JFrame("마이페이지");
         frame.setLocation(0, 0);				  //출력 위치를 화면 좌상단에 위치
         frame.setPreferredSize(dim);              //위 코드에서 지정한 좌표를 프레임 사이즈로 사용
