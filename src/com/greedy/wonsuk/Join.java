@@ -97,7 +97,8 @@ public class Join extends JFrame {
 				
 				if(conf.equals(pwd)) {
 					controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
-
+					setVisible(false);
+					new PopupPage();
 				}
 				else {
 					new ErrorPage();
