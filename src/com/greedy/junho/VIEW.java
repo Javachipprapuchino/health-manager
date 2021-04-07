@@ -111,7 +111,7 @@ public Map<String, String> inputMember(String id, String pwd, String name) {
 		
 		map.put("id", id );
 		map.put("pwd", pwd );
-		map.put("id", name );
+		map.put("name", name );
 		
 		
 		return map;

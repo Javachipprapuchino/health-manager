@@ -4,7 +4,7 @@ public class Applicationrun {
 	
 	public static void main(String[] args) {
 		
-		//new Login();
+		new Login();
 		
 		//new Join();
 		

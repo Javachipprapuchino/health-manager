@@ -2,6 +2,7 @@ package com.greedy.wonsuk;
 
 public class DataDTO {
 	
+	private int code;
 	private String id;
 	private String pwd;
 	private String name;

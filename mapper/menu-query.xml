@@ -3,20 +3,22 @@
 <properties> 
     <entry key="insertData">
         INSERT 
-          INTO MINIPRO A
+          INTO USER_INFO A
         ( 
           A.USER_CODE
         , A.USER_ID
         , A.USER_PWD
         , A.USER_NICKNAME 
+        , A.USER_EXP
           
         )
     	VALUES
     	(
-    	  SEQ_MENU_CODE.NEXTVAL
+    	  SEQ_USER_CODE.NEXTVAL
     	, ?
     	, ?
     	, ?
+    	, default
     	)
     </entry>
     
