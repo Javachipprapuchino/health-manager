@@ -21,6 +21,8 @@ public class Join extends JFrame {
 
 	private Controller controller = new Controller();
 	JPasswordField Password,Confirm;
+	JTextField ID;
+	JTextField Username;
 	public Join() {
 
 		this.setSize(350, 550);
@@ -53,11 +55,12 @@ public class Join extends JFrame {
 		username.setBounds(40, 257, 64, 20);
 		panel.add(username);
 
-		JTextField ID = new JTextField();
+		ID = new JTextField();
 		ID.setColumns(10);
 		ID.setBounds(120, 106, 186, 35);
 		panel.add(ID);
-
+		
+		
 		Password = new JPasswordField();
 		Password.setColumns(10);
 		Password.setBounds(120, 156, 186, 35);
@@ -68,7 +71,7 @@ public class Join extends JFrame {
 		Confirm.setBounds(120, 203, 186, 35);
 		panel.add(Confirm);
 
-		JTextField Username = new JTextField();
+		Username = new JTextField();
 		Username.setColumns(10);
 		Username.setBounds(120, 250, 186, 35);
 		panel.add(Username);
@@ -94,15 +97,21 @@ public class Join extends JFrame {
 					//System.out.print(pass[i]);
 					conf += con[i];
 				}
-				
-				if(conf.equals(pwd)) {
-					controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
-					setVisible(false);
-					new PopupPage();
+				if(ID.getText().equals("")||pwd.equals("")||conf.equals("")||Username.getText().equals("")) {
+					new ErrorPage2();
+
 				}
 				else {
-					new ErrorPage();
+					if(conf.equals(pwd)) {
+						controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
+						setVisible(false);
+						new PopupPage();
+					}
+					else {
+						new ErrorPage();
+					}
 				}
+				
 				// Controller.registNewMember(inputMember(ID.getText(), Password.getText(),
 				// Username.getText()));
 
