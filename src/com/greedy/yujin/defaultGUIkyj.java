@@ -10,6 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import com.greedy.junho.advanced;
+import com.greedy.junho.elementary;
+import com.greedy.junho.intermediate;
+
 public class defaultGUIkyj {
 	
 	public static void main(String[] args) {
@@ -52,6 +56,7 @@ public class defaultGUIkyj {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//초급 클래스 가져오기
+				elementary a = new elementary();
 			}
 		});
 		
@@ -61,6 +66,7 @@ public class defaultGUIkyj {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//중급 클래스 가져오기
+				intermediate b = new intermediate();
 			}
 		});
 		
@@ -70,6 +76,8 @@ public class defaultGUIkyj {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//고급 클래스 가져오기
+				advanced c = new advanced();
+
 			}
 		});
 		
