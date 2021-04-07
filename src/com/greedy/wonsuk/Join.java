@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -19,7 +20,7 @@ import com.greedy.junho.Controller;
 public class Join extends JFrame {
 
 	private Controller controller = new Controller();
-
+	JPasswordField Password,Confirm;
 	public Join() {
 
 		this.setSize(350, 550);
@@ -57,12 +58,12 @@ public class Join extends JFrame {
 		ID.setBounds(120, 106, 186, 35);
 		panel.add(ID);
 
-		JTextField Password = new JTextField();
+		Password = new JPasswordField();
 		Password.setColumns(10);
 		Password.setBounds(120, 156, 186, 35);
 		panel.add(Password);
 
-		JTextField Confirm = new JTextField();
+		Confirm = new JPasswordField();
 		Confirm.setColumns(10);
 		Confirm.setBounds(120, 203, 186, 35);
 		panel.add(Confirm);
@@ -80,8 +81,27 @@ public class Join extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				char[] pass = Password.getPassword(); //***로 되어있는 비밀번호를 해독
+				String pwd = "";
+				for(int i = 0; i < pass.length; i++) {
+					//System.out.print(pass[i]);
+					pwd += pass[i];
+				}
+				
+				char[] con = Confirm.getPassword();
+				String conf = "";
+				for(int i = 0; i < con.length; i++) {
+					//System.out.print(pass[i]);
+					conf += con[i];
+				}
+				
+				if(conf.equals(pwd)) {
+					controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
 
-				controller.registNewMember(inputMember(ID.getText(), Password.getText(), Username.getText()));
+				}
+				else {
+					new ErrorPage();
+				}
 				// Controller.registNewMember(inputMember(ID.getText(), Password.getText(),
 				// Username.getText()));
 

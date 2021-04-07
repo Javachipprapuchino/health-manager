@@ -14,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
 	
-public Login() {
+	public Login() {
 		
 		this.setSize(350, 550);
 		setLocationRelativeTo(null); // 윈도우 창에서 가운데 화면으로 띄우는 역학을 한다.
