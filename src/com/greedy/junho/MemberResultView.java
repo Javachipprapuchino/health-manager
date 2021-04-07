@@ -5,7 +5,7 @@ public class MemberResultView {
 	public void displayDmlResult(String code) {
 		
 		switch(code) {
-			case "insertFailed" : System.out.println("회원 가입 실패!"); break;
+//			case "insertFailed" : System.out.println("회원 가입 실패!"); break;
 //			case "updateFailed" : System.out.println("회원 정보 수정 실패!"); break;
 //			case "deleteFailed" : System.out.println("회원 탈퇴 실패!"); break;
 //			case "selectFailed" : System.out.println("회원 조회 실패!"); break;

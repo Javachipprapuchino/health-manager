@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 public class VIEW extends JFrame {
 	
+	private Controller controller = new Controller();
 	public static void main(String[] args) {
 		VIEW V = new VIEW();
 		
@@ -84,7 +85,8 @@ public class VIEW extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				Controller.registNewMember(inputMember(ID.getText(), Password.getText(), Username.getText()));
+				controller.registNewMember(inputMember(ID.getText(), Password.getText(), Username.getText()));
+				//Controller.registNewMember(inputMember(ID.getText(), Password.getText(), Username.getText()));
 					
 					
 			}

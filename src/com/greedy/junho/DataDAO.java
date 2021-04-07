@@ -1,4 +1,4 @@
-package com.greedy.wonsuk;
+package com.greedy.junho;
 
 import static com.greedy.common.JDBCTemplate.close;
 import static com.greedy.common.JDBCTemplate.getConnection;
@@ -22,8 +22,9 @@ public class DataDAO {
 		}
 	}
 
-	public int insertData(Connection con, DataDTO dto) {
+	public int insertData(Connection con2, DataDTO dto) {
 
+		Connection con = getConnection();
 
 		PreparedStatement pstmt = null;
 
