@@ -5,7 +5,7 @@ import java.util.Map;
 public class Controller {
 
 	private MemberResultView memberResultView = new MemberResultView();
-	private MemberService memberService = new MemberService();
+	private memberService memberService = new memberService();
 	
 	public void registNewMember(Map<String, String> requestMap) {
 

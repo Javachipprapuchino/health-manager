@@ -9,11 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
 	
+	JPasswordField Password;
 	public Login() {
 		
 		this.setSize(350, 550);
@@ -44,7 +46,7 @@ public class Login extends JFrame {
 		login.setBounds(50, 354, 106, 29);
 		panel.add(login);
 		
-		JTextField Password = new JTextField();
+		Password = new JPasswordField(); //패스워드필드로 변경함
 		Password.setColumns(10); 
 		Password.setBounds(120, 303, 170, 35);
 		panel.add(Password);

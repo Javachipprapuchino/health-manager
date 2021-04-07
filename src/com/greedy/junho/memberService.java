@@ -5,7 +5,7 @@ import static com.greedy.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 
-public class MemberService {
+public class memberService {
 
 	private DataDAO datadao = new DataDAO();
 	
