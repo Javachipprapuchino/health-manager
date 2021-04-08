@@ -61,6 +61,7 @@ public class difficulty extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//초급 클래스 가져오기
 				elementary a = new elementary();
+				frm.dispose(); //난이도 선택시 창닫힘
 			}
 		});
 		
@@ -71,6 +72,7 @@ public class difficulty extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//중급 클래스 가져오기
 				intermediate b = new intermediate();
+				frm.dispose(); //난이도 선택시 창닫힘
 			}
 		});
 		
@@ -81,7 +83,7 @@ public class difficulty extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//고급 클래스 가져오기
 				advanced c = new advanced();
-
+				frm.dispose(); //난이도 선택시 창닫힘
 			}
 		});
 		
