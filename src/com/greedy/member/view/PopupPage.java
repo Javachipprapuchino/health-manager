@@ -1,4 +1,4 @@
-package com.greedy.wonsuk;
+package com.greedy.member.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,19 +8,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class ErrorPage2 extends JFrame  {
+import com.greedy.member.controller.LoginController;
 
-	public ErrorPage2() {
-		
-		
+public class PopupPage extends JFrame {
+
+	public PopupPage() {
 		this.setSize(250, 150);
 		setLocationRelativeTo(null); // 윈도우 창에서 가운데 화면으로 띄우는 역학을 한다.
 		JPanel panel = new JPanel();
 		setContentPane(panel);
 		this.setLayout(null);
 		
-		JLabel join = new JLabel("입력사항을 모두 입력해주십시오");
-		join.setBounds(30, 10, 200, 20);
+		JLabel join = new JLabel("회원가입이 완료되었습니다.");
+		join.setBounds(40, 10, 200, 20);
 		panel.add(join);
 		
 		JButton exit = new JButton("닫기");
@@ -31,8 +31,8 @@ public class ErrorPage2 extends JFrame  {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				setVisible(false);
+				new LoginController();
 				
 			}
 		});
@@ -42,4 +42,5 @@ public class ErrorPage2 extends JFrame  {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
 }

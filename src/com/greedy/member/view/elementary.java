@@ -1,4 +1,4 @@
-package com.greedy.junho;
+package com.greedy.member.view;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -14,10 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-public class intermediate extends JFrame {
+public class elementary  extends JFrame{
 
-
-	public intermediate() {
+	public elementary() {
 		
 		JScrollPane scrollPane;
 		ImageIcon icon;
@@ -26,7 +25,7 @@ public class intermediate extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 60, 350, 550);
 		setVisible(true);
-		setTitle("중급리스트");
+		setTitle("초급리스트");
 		
 		
 //		------------------------------------------------------------------
@@ -46,7 +45,7 @@ public class intermediate extends JFrame {
 //    		------------------------------------------------------------------
 		background.setLayout(null);
 
-		JLabel lb = new JLabel("중급 운동 리스트",JLabel.CENTER);
+		JLabel lb = new JLabel("초급 운동 리스트",JLabel.CENTER);
 //		lb.setLocation(center);
 		lb.setSize(350, 100);
 
@@ -55,12 +54,12 @@ public class intermediate extends JFrame {
 //		버튼1
 		
 		
-		Image icon1 = new ImageIcon("intermediate/benchpress.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		Image icon1 = new ImageIcon("elementary/run.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 		JLabel btn1 = new JLabel(new ImageIcon(icon1));
 		btn1.setLocation(20, 100);
 		btn1.setSize(80, 80);
 
-		JLabel lb1 = new JLabel("벤치프레스");
+		JLabel lb1 = new JLabel("달리기");
 		lb1.setLocation(140, 110);
 		lb1.setSize(100, 30);
 		
@@ -82,12 +81,12 @@ public class intermediate extends JFrame {
 //================================== 버튼 2 =====================================================
 		   
 
-		   Image icon2 = new ImageIcon("intermediate/dumbellfly.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		   Image icon2 = new ImageIcon("elementary/cycle.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 			JLabel btn2 = new JLabel(new ImageIcon(icon2));
 			btn2.setLocation(20, 200);
 			btn2.setSize(80, 80);
 
-			JLabel lb2 = new JLabel("덤벨플라이");
+			JLabel lb2 = new JLabel("싸이클");
 			lb2.setLocation(140, 210);
 			lb2.setSize(100, 30);
 
@@ -107,12 +106,12 @@ public class intermediate extends JFrame {
 
 //		   버튼3
 		   
-		   Image icon3 = new ImageIcon("intermediate/militarypress.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		   Image icon3 = new ImageIcon("elementary/squat.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 			JLabel btn3 = new JLabel(new ImageIcon(icon3));
 			btn3.setLocation(20, 300);
 			btn3.setSize(80, 80);
 
-			JLabel lb3 = new JLabel("밀리터리프레스");
+			JLabel lb3 = new JLabel("스쿼트");
 			lb3.setLocation(140, 310);
 			lb3.setSize(100, 30);
 			

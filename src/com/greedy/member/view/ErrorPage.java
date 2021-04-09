@@ -1,4 +1,4 @@
-package com.greedy.wonsuk;
+package com.greedy.member.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

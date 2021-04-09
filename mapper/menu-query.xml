@@ -21,6 +21,19 @@
     	, default
     	)
     </entry>
+        <entry key="checkId">
+        SELECT
+               COUNT(*)
+          FROM USER_INFO A
+         WHERE A.USER_ID = ? 
+    </entry>
+    <entry key="loginConfirm">
+        SELECT
+               A.LOGIN_YN
+             , A.USER_PWD
+          FROM USER_INFO A
+         WHERE A.USER_ID = ?
+    </entry>
     
     
 </properties>

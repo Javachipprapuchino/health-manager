@@ -1,4 +1,4 @@
-package com.greedy.junho;
+package com.greedy.member.view;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -15,9 +15,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class advanced extends JFrame {
-
-
-	public advanced() {
+public advanced() {
 		
 		JScrollPane scrollPane;
 		ImageIcon icon;
@@ -26,7 +24,7 @@ public class advanced extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 60, 350, 550);
 		setVisible(true);
-		setTitle("고급리스트");
+		setTitle("초급리스트");
 		
 		
 //		------------------------------------------------------------------
@@ -55,12 +53,12 @@ public class advanced extends JFrame {
 //		버튼1
 		
 		
-		Image icon1 = new ImageIcon("advanced/cablecrunch.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		Image icon1 = new ImageIcon("advanced/dips.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 		JLabel btn1 = new JLabel(new ImageIcon(icon1));
 		btn1.setLocation(20, 100);
 		btn1.setSize(80, 80);
 
-		JLabel lb1 = new JLabel("케이블크런치");
+		JLabel lb1 = new JLabel("딥스");
 		lb1.setLocation(140, 110);
 		lb1.setSize(100, 30);
 		
@@ -82,12 +80,12 @@ public class advanced extends JFrame {
 //================================== 버튼 2 =====================================================
 		   
 
-		   Image icon2 = new ImageIcon("advanced/dips.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		   Image icon2 = new ImageIcon("advanced/upper-chest-training.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 			JLabel btn2 = new JLabel(new ImageIcon(icon2));
 			btn2.setLocation(20, 200);
 			btn2.setSize(80, 80);
 
-			JLabel lb2 = new JLabel("딥스");
+			JLabel lb2 = new JLabel("플랫벤치프레스");
 			lb2.setLocation(140, 210);
 			lb2.setSize(100, 30);
 
@@ -107,12 +105,12 @@ public class advanced extends JFrame {
 
 //		   버튼3
 		   
-		   Image icon3 = new ImageIcon("advanced/flatbenchpress.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+		   Image icon3 = new ImageIcon("advanced/cablecrunch.png").getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 			JLabel btn3 = new JLabel(new ImageIcon(icon3));
 			btn3.setLocation(20, 300);
 			btn3.setSize(80, 80);
 
-			JLabel lb3 = new JLabel("플랫벤치프레스");
+			JLabel lb3 = new JLabel("케이블크런치");
 			lb3.setLocation(140, 310);
 			lb3.setSize(100, 30);
 			
@@ -141,7 +139,10 @@ public class advanced extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 
 					/* 이벤트 실행 내용을 적는다 */
-				
+					if (e.getSource() == btn4) {
+
+					}
+
 				}
 			});
 		   

@@ -1,4 +1,4 @@
-package com.greedy.wonsuk;
+package com.greedy.member.view;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -10,20 +10,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import com.greedy.junho.Controller;
+import com.greedy.member.controller.JoinController;
 
-public class Join extends JFrame {
 
-	private Controller controller = new Controller();
+
+public class JoinView extends JFrame {
+
+	private JoinController controller = new JoinController();
 	JPasswordField Password,Confirm;
 	JTextField ID;
 	JTextField Username;
-	public Join() {
+	public JoinView() {
 
 		this.setSize(350, 550);
 		setLocationRelativeTo(null);
@@ -84,33 +87,42 @@ public class Join extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				char[] pass = Password.getPassword(); //***로 되어있는 비밀번호를 해독
-				String pwd = "";
-				for(int i = 0; i < pass.length; i++) {
-					//System.out.print(pass[i]);
-					pwd += pass[i];
-				}
-				
-				char[] con = Confirm.getPassword();
-				String conf = "";
-				for(int i = 0; i < con.length; i++) {
-					//System.out.print(pass[i]);
-					conf += con[i];
-				}
-				if(ID.getText().equals("")||pwd.equals("")||conf.equals("")||Username.getText().equals("")) {
-					new ErrorPage2();
 
-				}
-				else {
-					if(conf.equals(pwd)) {
-						controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
-						setVisible(false);
-						new PopupPage();
+				if(controller.checkId(ID.getText()) > 0) { //텍스트 박스에서 가져오기 USER01안에 들어가는걸
+
+					JOptionPane.showMessageDialog(null, "중복된 아이디 입니다");
+					setVisible(false);
+					new JoinView();
+				}else {
+					char[] pass = Password.getPassword(); //***로 되어있는 비밀번호를 해독
+					String pwd = "";
+					for(int i = 0; i < pass.length; i++) {
+						//System.out.print(pass[i]);
+						pwd += pass[i];
+					}
+					
+					char[] con = Confirm.getPassword();
+					String conf = "";
+					for(int i = 0; i < con.length; i++) {
+						//System.out.print(pass[i]);
+						conf += con[i];
+					}
+					if(ID.getText().equals("")||pwd.equals("")||conf.equals("")||Username.getText().equals("")) {
+						new ErrorPage2();
+
 					}
 					else {
-						new ErrorPage();
+						if(conf.equals(pwd)) {
+							controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
+							setVisible(false);
+							new PopupPage();
+						}
+						else {
+							new ErrorPage();
+						}
 					}
 				}
+		
 				
 				// Controller.registNewMember(inputMember(ID.getText(), Password.getText(),
 				// Username.getText()));

@@ -1,4 +1,4 @@
-package com.greedy.sunghun;
+package com.greedy.member.view;
 
 import java.awt.Font;
 import java.awt.MenuItem;
@@ -42,6 +42,8 @@ public class mainmenu extends JFrame {
    JLabel jl = new JLabel(dateToStr);
    public mainmenu() { // 기본생성자
        super("메인 메뉴");
+       this.dispose();
+       this.setVisible(true);
        this.setLayout(null);
        // 팝업메뉴에 메뉴아이템 추가
        pm.add(pm_item1);
@@ -194,8 +196,8 @@ public class mainmenu extends JFrame {
    
    
    
-   public static void main(String[] args) {
-       new mainmenu();
-       
-   }
+//   public static void main(String[] args) {
+//       new mainmenu();
+//       
+//   }
 }

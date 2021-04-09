@@ -1,4 +1,4 @@
-package com.greedy.sunghun;
+package com.greedy.member.view;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -89,23 +89,13 @@ public class mypage extends JFrame {
         progress.setValue(50);
         frame.add(progress);
         
-        
         frame.pack();
         frame.setVisible(true);
        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //닫기버튼 클릭시 프로그램 종료
-		
-        
         
 	}
-	
-	
 
-	
-	
     public static void main(String args[]){
-    	
-    	
         new mypage();
-
     }
 }

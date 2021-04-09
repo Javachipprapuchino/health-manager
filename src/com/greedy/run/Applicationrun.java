@@ -1,13 +1,12 @@
-package com.greedy.wonsuk;
+package com.greedy.run;
 
-import com.greedy.sunghun.mainmenu;
-import com.greedy.sunghun.mypage;
+import com.greedy.member.view.LoginView;
 
 public class Applicationrun {
 	
 	public static void main(String[] args) {
 		
-		new Login();
+		new LoginView();
 		
 		//new Join();
 		

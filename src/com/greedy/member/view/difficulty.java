@@ -1,4 +1,4 @@
-package com.greedy.yujin;
+package com.greedy.member.view;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -10,13 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import com.greedy.junho.advanced;
-import com.greedy.junho.elementary;
-import com.greedy.junho.intermediate;
 
-public class difficulty extends JFrame {
-	
-	private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
+public class difficulty extends JFrame{
+
+private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 
 	
 	public difficulty() {
@@ -61,7 +58,6 @@ public class difficulty extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//초급 클래스 가져오기
 				elementary a = new elementary();
-				frm.dispose(); //난이도 선택시 창닫힘
 			}
 		});
 		
@@ -72,7 +68,6 @@ public class difficulty extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//중급 클래스 가져오기
 				intermediate b = new intermediate();
-				frm.dispose(); //난이도 선택시 창닫힘
 			}
 		});
 		
@@ -83,7 +78,7 @@ public class difficulty extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//고급 클래스 가져오기
 				advanced c = new advanced();
-				frm.dispose(); //난이도 선택시 창닫힘
+
 			}
 		});
 		
@@ -112,5 +107,4 @@ public class difficulty extends JFrame {
 	public static void main(String[] args) {
 		new difficulty();
 	}
-	
 }

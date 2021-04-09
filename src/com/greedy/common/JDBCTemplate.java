@@ -14,7 +14,7 @@ public class JDBCTemplate {
 
 	public static Connection getConnection() {
 		
-		Connection con = null;
+		Connection con  = null;
 		
 		Properties prop = new Properties();
 		
