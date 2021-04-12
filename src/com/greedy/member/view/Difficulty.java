@@ -11,12 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class difficulty extends JFrame{
+public class Difficulty extends JFrame{
 
 private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 
 	
-	public difficulty() {
+	public Difficulty() {
 	
 		//프레임 생성하기
 		JFrame frm = new JFrame("난이도 선택");
@@ -58,6 +58,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 			public void actionPerformed(ActionEvent e) {
 				//초급 클래스 가져오기
 				elementary a = new elementary();
+				frm.dispose();
 			}
 		});
 		
@@ -68,6 +69,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 			public void actionPerformed(ActionEvent e) {
 				//중급 클래스 가져오기
 				intermediate b = new intermediate();
+				frm.dispose();
 			}
 		});
 		
@@ -78,6 +80,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 			public void actionPerformed(ActionEvent e) {
 				//고급 클래스 가져오기
 				advanced c = new advanced();
+				frm.dispose();
 
 			}
 		});
@@ -105,6 +108,6 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 	}
 	
 	public static void main(String[] args) {
-		new difficulty();
+		new Difficulty();
 	}
 }

@@ -19,9 +19,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.greedy.member.controller.UpdateDeleteController;
+
 public class mainmenu extends JFrame {
    JPanel jp = new JPanel();
    private Font f1,f2;
+   
    
    
    
@@ -85,7 +88,7 @@ public class mainmenu extends JFrame {
        add(jl1);
        jl1.setFont(f2);
        
-       JButton jb1 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb1 = new JButton("팔벌려뛰기");
        jb1.setLocation(30,150); //150만 수정
        jb1.setSize(200,40);
        add(jb1);
@@ -95,11 +98,20 @@ public class mainmenu extends JFrame {
        jb11.setSize(60,40);
        add(jb11);
        
+       
        jb11.addActionListener(new ActionListener() {
+    	   
+    	 
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			String id = "USER01";
+			String exCode = "E01";
+			UpdateDeleteController updatedeletecontroller = new UpdateDeleteController();
+			updatedeletecontroller.updateCount(id, exCode);
+			updatedeletecontroller.deleteCount(id, exCode);
 			jb11.setEnabled(false);
+			
 		}
        });
        
@@ -159,7 +171,8 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
-   			jb41.setEnabled(false);
+   			jb41.setEnabled(false);  	
+   			
    		}
        });
        
@@ -196,8 +209,7 @@ public class mainmenu extends JFrame {
    
    
    
-//   public static void main(String[] args) {
-//       new mainmenu();
-//       
-//   }
+   public static void main(String[] args) {
+       new mainmenu();
+  }
 }

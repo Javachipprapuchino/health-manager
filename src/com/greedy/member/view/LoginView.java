@@ -79,7 +79,7 @@ public class LoginView extends JFrame {
 				}else if(firstLoginCheck.trim().equals("N")){
 					JOptionPane.showMessageDialog(null, "운동 강도 선택 화면으로 이동합니다");
 					setVisible(false);
-					new difficulty();
+					new Difficulty();
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해 주세요.");
 					setVisible(false);

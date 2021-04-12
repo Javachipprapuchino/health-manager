@@ -34,6 +34,22 @@
           FROM USER_INFO A
          WHERE A.USER_ID = ?
     </entry>
+    <entry key="totalCounting">
+       UPDATE USER_EX_ED
+          SET COUNT = (SELECT SUM(E.COUNT + I.COUNTING)
+                         FROM USER_EX_ED E
+                         JOIN USER_EX_ING I ON(E.EX_CODE = I.ING_CODE)
+                        WHERE E.USER_ID = ?
+                          AND E.EX_CODE = ?)
+      WHERE USER_ID = ?
+        AND EX_CODE = ?
+    </entry>
+    <entry key="deleteCount">
+        DELETE 
+          FROM USER_EX_ING
+         WHERE USER_ID = ?
+           AND ING_CODE = ?
+    </entry>
     
     
 </properties>

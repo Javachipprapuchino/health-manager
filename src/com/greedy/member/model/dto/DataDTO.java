@@ -7,18 +7,25 @@ public class DataDTO {
 	private String pwd;
 	private String name;
 	private String confirm;
+	private String exCode;
+	private int count;
+	private int counting;
 	
 	public DataDTO() {
 		super();
 	}
 
-	public DataDTO(int code, String id, String pwd, String name, String confirm) {
+	public DataDTO(int code, String id, String pwd, String name, String confirm, String exCode, int count,
+			int counting) {
 		super();
 		this.code = code;
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
 		this.confirm = confirm;
+		this.exCode = exCode;
+		this.count = count;
+		this.counting = counting;
 	}
 
 	public int getCode() {
@@ -61,11 +68,37 @@ public class DataDTO {
 		this.confirm = confirm;
 	}
 
+	public String getExCode() {
+		return exCode;
+	}
+
+	public void setExCode(String exCode) {
+		this.exCode = exCode;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public int getCounting() {
+		return counting;
+	}
+
+	public void setCounting(int counting) {
+		this.counting = counting;
+	}
+
 	@Override
 	public String toString() {
 		return "DataDTO [code=" + code + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", confirm=" + confirm
-				+ "]";
+				+ ", exCode=" + exCode + ", count=" + count + ", counting=" + counting + "]";
 	}
+
+	
 
 	
 	
