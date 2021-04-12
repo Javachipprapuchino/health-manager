@@ -9,6 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import com.greedy.member.model.dto.DataDTO;
@@ -180,6 +184,36 @@ public class DataDAO {
 		
 		return result;
 		
+		
+	}
+	
+	public List<Map<String,Integer>> checkEx(Connection con,String str) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null; 
+		List<Map<String,Integer>> exList = null;
+		String query = prop.getProperty("selectEx");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, str); 
+			rset = pstmt.executeQuery();
+			exList = new ArrayList<>();
+			while(rset.next()) {
+				Map<String,Integer> category = new HashMap<>();
+				category.put(rset.getString("EX_NAME"), rset.getInt("COUNTING"));
+				
+				exList.add(category);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return exList;
 		
 	}
 	

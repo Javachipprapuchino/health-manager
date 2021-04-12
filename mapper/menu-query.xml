@@ -50,7 +50,19 @@
          WHERE USER_ID = ?
            AND ING_CODE = ?
     </entry>
+    <entry key="selectEx">
+ SELECT
+          B.EX_NAME
+        , A.COUNTING
+
+          FROM USER_EX_ING A 
+         
+          JOIN EXERCISE B ON(A.ING_CODE = B.EX_CODE)
+        WHERE A.USER_ID =?
+        ORDER BY B.EX_CODE DESC
+          
     
+    </entry>
     
 </properties>
 

@@ -6,6 +6,8 @@ import static com.greedy.common.JDBCTemplate.getConnection;
 import static com.greedy.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.List;
+import java.util.Map;
 
 import com.greedy.member.model.dao.DataDAO;
 import com.greedy.member.model.dto.DataDTO;
@@ -100,7 +102,12 @@ public class MemberService {
 
 
 	
-
+	public List<Map<String,Integer>> CheckEx(String str){
+		Connection con = getConnection();
+		
+		List<Map<String,Integer>> exList = datadao.checkEx(con, str);
+		return exList;
+	}
 
 
 

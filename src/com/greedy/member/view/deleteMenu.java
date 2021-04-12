@@ -1,11 +1,7 @@
 package com.greedy.member.view;
 
-import static com.greedy.common.JDBCTemplate.getConnection;
-
 import java.awt.Font;
 import java.awt.MenuItem;
-import java.sql.Connection;
-
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,94 +21,47 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.greedy.member.model.dao.DataDAO;
 import com.greedy.member.model.service.MemberService;
 
-public class mainmenu extends JFrame {
+public class deleteMenu extends JFrame {
    JPanel jp = new JPanel();
    private Font f1,f2;
-	private MemberService memberService = new MemberService();
-
-   
-
-   PopupMenu pm = new PopupMenu();
-   MenuItem pm_item1 = new MenuItem("마이페이지");
-   MenuItem pm_item2 = new MenuItem("운동 추가");
-   MenuItem pm_item3 = new MenuItem("운동 삭제");
+   private MemberService memberService = new MemberService();
    
    
-   
-   DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-   Date date = new Date();        
-   String dateToStr = dateFormat.format(date);
-   String[] week = new String[] {"일요일","월요일","화요일","수요일","목요일","금요일","토요일"};
-   Calendar cal = Calendar.getInstance();
-   
-   JLabel jl = new JLabel(dateToStr);
-   public mainmenu() { // 기본생성자
-     
+   public deleteMenu() { // 기본생성자
+       
    }
    
-   public mainmenu(String loginId) {
-	   
-	   
-	   
-	   super("메인 메뉴");
+   public deleteMenu(String loginId) {
+	   super("삭제 메뉴");
        this.dispose();
        this.setVisible(true);
        this.setLayout(null);
        setLocationRelativeTo(null);
-       
        // 팝업메뉴에 메뉴아이템 추가
-       pm.add(pm_item1);
-       pm.addSeparator(); // 구분선
-       pm.add(pm_item2);
-       pm.add(pm_item3);
        
+		
        List<Map<String,Integer>> ExList = memberService.CheckEx(loginId);
-     //  System.out.println(ExList.get(0).get(""));
-       
-       
-       pm_item1.addActionListener(new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			setVisible(false);
-			new mypage();
-
-		}
-       });
-       
-       pm_item3.addActionListener(new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			setVisible(false);
-			new deleteMenu(loginId);
-		}
-	});
-       
        f1 = new Font("돋움",Font.PLAIN,15);
        f2 = new Font("돋움",Font.PLAIN,20);
        
-       cal.setTime(date);
-       int dayNum = cal.get(Calendar.DAY_OF_WEEK)-1;
+       JButton back = new JButton("뒤");
+       back.setLocation(0,0);
+       back.setSize(100,50);
+       add(back);
+       back.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			setVisible(false);
+			new mainmenu(loginId);
+		}
+	});
        
-       
-       JLabel jlday = new JLabel(week[dayNum]);
-       jlday.setSize(200,30);
-       jlday.setLocation(190,40);
-       jlday.setFont(f1);
-       add(jlday);
-       
-       jl.setSize(200,30);
-       jl.setLocation(100,40);
-       jl.setFont(f1);
-      
-       JLabel jl1 = new JLabel("오늘의 운동");
-       jl1.setLocation(110,60);
+       JLabel jl1 = new JLabel("운동 삭제");
+       jl1.setLocation(120,60);
        jl1.setSize(200,40);
        add(jl1);
        jl1.setFont(f2);
@@ -122,7 +71,7 @@ public class mainmenu extends JFrame {
        jb1.setSize(200,40);
        add(jb1);
        
-       JButton jb11 = new JButton("완료");
+       JButton jb11 = new JButton("삭제");
        jb11.setLocation(250,150);
        jb11.setSize(60,40);
        add(jb11);
@@ -131,6 +80,7 @@ public class mainmenu extends JFrame {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			jb1.setText("아직 설정되지 않았습니다.");
 			jb11.setEnabled(false);
 		}
        });
@@ -142,7 +92,7 @@ public class mainmenu extends JFrame {
        jb2.setSize(200,40);
        add(jb2);
        
-       JButton jb21 = new JButton("완료");
+       JButton jb21 = new JButton("삭제");
        jb21.setLocation(250,210);
        jb21.setSize(60,40);
        add(jb21);
@@ -151,6 +101,7 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
+   			jb2.setText("아직 설정되지 않았습니다.");
    			jb21.setEnabled(false);
    		}
        });
@@ -161,7 +112,7 @@ public class mainmenu extends JFrame {
        jb3.setSize(200,40);
        add(jb3);
        
-       JButton jb31 = new JButton("완료");
+       JButton jb31 = new JButton("삭제");
        jb31.setLocation(250,270);
        jb31.setSize(60,40);
        add(jb31);
@@ -170,6 +121,7 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
+   			jb3.setText("아직 설정되지 않았습니다.");
    			jb31.setEnabled(false);
    		}
        });
@@ -181,7 +133,7 @@ public class mainmenu extends JFrame {
        jb4.setSize(200,40);
        add(jb4);
        
-       JButton jb41 = new JButton("완료");
+       JButton jb41 = new JButton("삭제");
        jb41.setLocation(250,330);
        jb41.setSize(60,40);
        add(jb41);
@@ -191,13 +143,11 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
+   			
+   			jb4.setText("아직 설정되지 않았습니다.");
    			jb41.setEnabled(false);
    		}
        });
-       
-       
-       
-     
        
        if(ExList.size()>=1) {
     	   for(String key : ExList.get(0).keySet()) {
@@ -222,9 +172,8 @@ public class mainmenu extends JFrame {
         	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
            }
        }
+       
        add(jp);
-       add(jl);
-       add(pm); // 팝업메뉴를 프레임에 추가
        
       
        //x 종료버튼
@@ -235,23 +184,13 @@ public class mainmenu extends JFrame {
            }
        });
       
-       //팝업메뉴 보여주기 이벤트
-       this.addMouseListener(new MouseAdapter() {
-
-           @Override
-           public void mousePressed(MouseEvent me) {
-               // 오른쪽 마우스 버튼을 누르면 PopupMenu를 화면에 보여준다.
-               if (me.getButton() == MouseEvent.BUTTON3)
-                   pm.show(mainmenu.this, me.getX(), me.getY());
-           }
-       });
-       
        
     
 		  setSize(350, 550);
 	       setVisible(true);
 		
    }
+   
    
 //   public static void main(String[] args) {
 //       new mainmenu();

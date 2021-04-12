@@ -75,7 +75,7 @@ public class LoginView extends JFrame {
 				if(firstLoginCheck.trim().equals("Y")) {
 						JOptionPane.showMessageDialog(null, "메인 화면으로 이동합니다");
 						setVisible(false);
-						new mainmenu();
+						new mainmenu(text.getText());
 				}else if(firstLoginCheck.trim().equals("N")){
 					JOptionPane.showMessageDialog(null, "운동 강도 선택 화면으로 이동합니다");
 					setVisible(false);
