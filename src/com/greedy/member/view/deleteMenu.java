@@ -187,7 +187,7 @@ public class deleteMenu extends JFrame {
    		public void actionPerformed(ActionEvent e) {
    			
    			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
-			String exName = name1;
+			String exName = name4;
 			System.out.println("삭제4 호출");
 			int result = new UpdateDeleteController().deleteCount(id,exName); 
 			//controller의 deleteCount에 id와 exName을 담아 호출한다
@@ -250,8 +250,5 @@ public class deleteMenu extends JFrame {
    }
    
    
-//   public static void main(String[] args) {
-//       new mainmenu();
-//       
-//   }
+
 }
