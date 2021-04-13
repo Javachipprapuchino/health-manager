@@ -44,6 +44,20 @@
       WHERE USER_ID = ?
         AND EX_CODE = ?
     </entry>
+    
+    <entry key="selectExName">
+        SELECT
+               EX_CODE
+          FROM EXERCISE
+         WHERE EX_NAME = ?
+    </entry>
+    
+    <entry key="deleteCount">
+        DELETE 
+          FROM USER_EX_ING
+         WHERE USER_ID = ?
+           AND ING_CODE = ?
+    </entry>
     <entry key="deleteCount">
         DELETE 
           FROM USER_EX_ING

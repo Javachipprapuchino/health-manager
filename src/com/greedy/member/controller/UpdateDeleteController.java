@@ -8,33 +8,29 @@ public class UpdateDeleteController {
 	
 	private MemberService memberservice = new MemberService();
 
-	public int updateCount(String id, String exCode) {
-		
+	public int updateCount(String id, String exName) {
 		
 		DataDTO dataDTO = new DataDTO();
+		dataDTO.setId(id); //dataDTO의 Id에 현재 로그인중인 아이디를 담는다
+		dataDTO.setExName(exName); //dataDTO의 ExName에 현재 진행중인 운동의 이름을 담는다
 		
-		dataDTO.setId("USER01");
-		dataDTO.setExCode("E01");
+		int registResult = memberservice.updateCount(dataDTO); //memberservice에서 updateCount 메소드를 호출한다
 		
-		int registResult = memberservice.updateCount(dataDTO);
-		
-		return registResult;
+		return registResult; // memberservice.updateCount에서 받은 결과값을 registResult에 담아 리턴시킨다
 	}
-	
 
-	public int deleteCount(String id, String exCode) {
+
+	public int deleteCount(String id, String exName) {
 		
 		DataDTO dataDTO = new DataDTO();
-		
-		dataDTO.setId("USER01");
-		dataDTO.setExCode("E01");
+		dataDTO.setId(id);
+		dataDTO.setExName(exName);
 		
 		int registResult = memberservice.deleteCount(dataDTO);
 		
 		return registResult;
 		
 	}
-	
 	
 	
 

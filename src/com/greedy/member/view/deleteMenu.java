@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.greedy.member.controller.UpdateDeleteController;
 import com.greedy.member.model.service.MemberService;
 
 public class deleteMenu extends JFrame {
@@ -28,12 +29,19 @@ public class deleteMenu extends JFrame {
    private Font f1,f2;
    private MemberService memberService = new MemberService();
    
+   String name1;
+   String name2;
+   String name3;
+   String name4;
+   
    
    public deleteMenu() { // 기본생성자
        
    }
    
    public deleteMenu(String loginId) {
+	   
+	   
 	   super("삭제 메뉴");
        this.dispose();
        this.setVisible(true);
@@ -59,6 +67,7 @@ public class deleteMenu extends JFrame {
 			new mainmenu(loginId);
 		}
 	});
+     
        
        JLabel jl1 = new JLabel("운동 삭제");
        jl1.setLocation(120,60);
@@ -80,8 +89,19 @@ public class deleteMenu extends JFrame {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			jb1.setText("아직 설정되지 않았습니다.");
+			
+			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name1;
+			System.out.println("삭제1 호출");
+			int result = new UpdateDeleteController().deleteCount(id,exName); 
+			//controller의 deleteCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
 			jb11.setEnabled(false);
+			
+			if(result > 0) {
+				
+				jb1.setText("아직 설정되지 않았습니다.");
+			}
 		}
        });
        
@@ -101,8 +121,19 @@ public class deleteMenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
-   			jb2.setText("아직 설정되지 않았습니다.");
-   			jb21.setEnabled(false);
+   			
+   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name2;
+			System.out.println("삭제2 호출");
+			int result = new UpdateDeleteController().deleteCount(id,exName); 
+			//controller의 deleteCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
+			jb21.setEnabled(false);
+			
+			if(result > 0) {
+				
+				jb2.setText("아직 설정되지 않았습니다.");
+			}
    		}
        });
        //
@@ -121,8 +152,19 @@ public class deleteMenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
-   			jb3.setText("아직 설정되지 않았습니다.");
-   			jb31.setEnabled(false);
+   			
+   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name3;
+			System.out.println("삭제3 호출");
+			int result = new UpdateDeleteController().deleteCount(id,exName); 
+			//controller의 deleteCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
+			jb31.setEnabled(false);
+			
+			if(result > 0) {
+				
+				jb3.setText("아직 설정되지 않았습니다.");
+			}
    		}
        });
        
@@ -144,32 +186,48 @@ public class deleteMenu extends JFrame {
    		@Override
    		public void actionPerformed(ActionEvent e) {
    			
-   			jb4.setText("아직 설정되지 않았습니다.");
-   			jb41.setEnabled(false);
+   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name1;
+			System.out.println("삭제4 호출");
+			int result = new UpdateDeleteController().deleteCount(id,exName); 
+			//controller의 deleteCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
+			jb41.setEnabled(false);
+			
+			if(result > 0) {
+				
+				jb4.setText("아직 설정되지 않았습니다.");
+			}
+   			
    		}
        });
        
        if(ExList.size()>=1) {
     	   for(String key : ExList.get(0).keySet()) {
         	   jb1.setText(key+"  횟수 : "+ExList.get(0).get(key));
+        	   name1 = key.toString();
+        	   System.out.println(name1);
            }
        }
        
        if(ExList.size()>=2) {
     	   for(String key : ExList.get(1).keySet()) {
         	   jb2.setText(key+"  횟수 : "+ExList.get(1).get(key));
+        	   name2 = key.toString();
            }
        }
        
        if(ExList.size()>=3) {
     	   for(String key : ExList.get(2).keySet()) {
         	   jb3.setText(key+"  횟수 : "+ExList.get(2).get(key));
+        	   name3 = key.toString();
            }
        }
        
        if(ExList.size()>=4) {
     	   for(String key : ExList.get(3).keySet()) {
         	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
+        	   name4 = key.toString();
            }
        }
        

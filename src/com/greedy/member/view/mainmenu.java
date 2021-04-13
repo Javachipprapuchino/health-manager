@@ -1,11 +1,7 @@
 package com.greedy.member.view;
 
-import static com.greedy.common.JDBCTemplate.getConnection;
-
 import java.awt.Font;
 import java.awt.MenuItem;
-import java.sql.Connection;
-
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,13 +21,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.greedy.member.model.dao.DataDAO;
+import com.greedy.member.controller.UpdateDeleteController;
 import com.greedy.member.model.service.MemberService;
 
 public class mainmenu extends JFrame {
    JPanel jp = new JPanel();
    private Font f1,f2;
-	private MemberService memberService = new MemberService();
+   private MemberService memberService = new MemberService();
+   String name1;
+   String name2;
+   String name3;
+   String name4;
 
    
 
@@ -131,7 +131,14 @@ public class mainmenu extends JFrame {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name1;
+			System.out.println("버튼1 호출");
+			new UpdateDeleteController().updateCount(id,exName); 
 			jb11.setEnabled(false);
+			//controller의 updateCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
+
 		}
        });
        
@@ -151,7 +158,13 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
-   			jb21.setEnabled(false);
+   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name2;
+			System.out.println("버튼2 호출");
+			new UpdateDeleteController().updateCount(id,exName); 
+			jb21.setEnabled(false);
+			//controller의 updateCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
    		}
        });
        //
@@ -170,7 +183,13 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
-   			jb31.setEnabled(false);
+   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name3;
+			System.out.println("버튼3 호출");
+			new UpdateDeleteController().updateCount(id,exName); 
+			jb31.setEnabled(false);
+			//controller의 updateCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
    		}
        });
        
@@ -191,7 +210,13 @@ public class mainmenu extends JFrame {
    		
    		@Override
    		public void actionPerformed(ActionEvent e) {
-   			jb41.setEnabled(false);
+   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+			String exName = name4;
+			System.out.println("버튼4 호출");
+			new UpdateDeleteController().updateCount(id,exName); 
+			jb41.setEnabled(false);
+			//controller의 updateCount에 id와 exName을 담아 호출한다
+			//리턴 받은 값을 result에 담는다
    		}
        });
        
@@ -202,24 +227,28 @@ public class mainmenu extends JFrame {
        if(ExList.size()>=1) {
     	   for(String key : ExList.get(0).keySet()) {
         	   jb1.setText(key+"  횟수 : "+ExList.get(0).get(key));
+        	   name1 = key.toString();
            }
        }
        
        if(ExList.size()>=2) {
     	   for(String key : ExList.get(1).keySet()) {
         	   jb2.setText(key+"  횟수 : "+ExList.get(1).get(key));
+        	   name2 = key.toString();
            }
        }
        
        if(ExList.size()>=3) {
     	   for(String key : ExList.get(2).keySet()) {
         	   jb3.setText(key+"  횟수 : "+ExList.get(2).get(key));
+        	   name3 = key.toString();
            }
        }
        
        if(ExList.size()>=4) {
     	   for(String key : ExList.get(3).keySet()) {
         	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
+        	   name4 = key.toString();
            }
        }
        add(jp);

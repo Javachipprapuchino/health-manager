@@ -10,11 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.greedy.member.model.dao.DataDAO;
+import com.greedy.member.model.dao.UpdateAndDeleteDAO;
 import com.greedy.member.model.dto.DataDTO;
 
 public class MemberService {
 	
 	private DataDAO datadao = new DataDAO();
+	private UpdateAndDeleteDAO upAndDeleteDAO = new UpdateAndDeleteDAO();
 	
 	
 	public int insertMember(DataDTO dataDTO) {
@@ -55,50 +57,89 @@ public class MemberService {
 	}
 
 
+	public String selectAllCategory(DataDTO dataDTO) {
+		
+		/* 1. Connection 생성 */
+		Connection con = getConnection();
+		
+		/* 2. DAO의 모든 카테고리 조회용 메소드를 호출하여 결과 리턴 받기 */
+		String exCode = upAndDeleteDAO.selectExName(con, dataDTO);
+		
+		/* 3. 커넥션 닫기 */
+		close(con);
+		
+		/* 4. 반환 받은 값 리턴 */
+		return exCode;
+	}
+
+
 	public int updateCount(DataDTO dataDTO) {
 		Connection con = getConnection();
 		
-		int result = 0;
+		String result1 = "";
+		int result2 = 0;
 		
-		result = datadao.updateCount(con, dataDTO);
+		//셀렉트 후, 얻은 운동코드를 사용하여 카운트 업데이트
+		result1 = upAndDeleteDAO.selectExName(con, dataDTO); //result1에 selectExName에서 얻은 값을 담는다
 		
-		// 성공, 실패에 따른 트랜잭션 처리
-		
-		if(result > 0) {
-			commit(con);
-			System.out.println("업데이트 후, 커밋 성공!!");
-		} else {
-			rollback(con);
-			System.out.println("업데이트 실패, 롤백!!");
+		if(result1 != null) { //result1에 결과값이 담겼을시(NULL이 아닐시)에만 실행을 한다
+			
+			dataDTO.setExCode(result1); //dataDTO의 ExCode에 result1의 값을 담는다
+			
+			result2 = upAndDeleteDAO.updateCount(con, dataDTO); //result2에 updateCount에서 얻은 값을 담는다
+			
+			// 성공, 실패에 따른 트랜잭션 처리
+			if(result2 > 0) { //result2가 0보다 크다면 성공이다
+				commit(con);
+				System.out.println("업데이트 후, 커밋 성공!!");
+			} else {
+				rollback(con);
+				System.out.println("업데이트 실패, 롤백!!");
+			}
 		}
-		
+
 		// Connection 객체 소멸
 		
 		close(con);
 		
-		return result;
+		return result2; //결과값은 result2의 값을 반환한다
 	}
+
 
 	public int deleteCount(DataDTO dataDTO) {
 		
 		Connection con = getConnection();
 		
-		int result = 0;
+		String result1 = "";
+		int result2 = 0;
 		
-		result = datadao.deleteCount(con, dataDTO);
+		//셀렉트 후, 얻은 운동코드를 사용하여 카운트 업데이트
+		result1 = upAndDeleteDAO.selectExName(con, dataDTO); //result1에 selectExName에서 얻은 값을 담는다
 		
-		if(result > 0) {
-			commit(con);
-			System.out.println("삭제 후, 커밋 성공!!");
-		} else {
-			rollback(con);
-			System.out.println("삭제 실패, 롤백!!");
+		if(result1 != null) { //result1에 결과값이 담겼을시(NULL이 아닐시)에만 실행을 한다
+			
+			dataDTO.setExCode(result1); //dataDTO의 ExCode에 result1의 값을 담는다
+			
+			result2 = upAndDeleteDAO.deleteCount(con, dataDTO); //result2에 updateCount에서 얻은 값을 담는다
+			
+			// 성공, 실패에 따른 트랜잭션 처리
+			if(result2 > 0) { //result2가 0보다 크다면 성공이다
+				commit(con);
+				System.out.println("업데이트 후, 커밋 성공!!");
+			} else {
+				rollback(con);
+				System.out.println("업데이트 실패, 롤백!!");
+			}
 		}
-		return 0;
+
+		// Connection 객체 소멸
+		
+		close(con);
+		
+		return result2; //결과값은 result2의 값을 반환한다
+		
+		
 	}
-
-
-
 
 
 	

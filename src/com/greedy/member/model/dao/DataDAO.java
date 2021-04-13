@@ -123,69 +123,7 @@ public class DataDAO {
 		return loginInformation;
 	}
 	
-	public int updateCount(Connection con, DataDTO dto) {
-		PreparedStatement pstmt = null;
-		
-		int result = 0;
-		
-		String query = prop.getProperty("totalCounting");
-		
-		try {
-			
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, "USER01");
-			pstmt.setString(2, "E01");
-			pstmt.setString(3, "USER01");
-			pstmt.setString(4, "E01");
-			
-			result = pstmt.executeUpdate();
-			
-			
-			System.out.println("결과값 :" +result);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		if(result > 0) {
-			System.out.println("업데이트 성공!");
-		} else {
-			System.out.println("업데이트 실패!");
-		}
-		
-		return result;
-		
-	}
 
-	
-	public int deleteCount(Connection con, DataDTO dto) {
-		PreparedStatement pstmt = null;
-		
-		int result = 0;
-		
-		try {
-			
-			String query = prop.getProperty("deleteCount");
-			
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, "USER01");
-			pstmt.setString(2, "E01");
-			
-			result = pstmt.executeUpdate();
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-			close(con);
-		}
-		
-		return result;
-		
-		
-	}
 	
 	public List<Map<String,Integer>> checkEx(Connection con,String str) {
 		

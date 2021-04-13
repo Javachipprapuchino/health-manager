@@ -8,6 +8,7 @@ public class DataDTO {
 	private String name;
 	private String confirm;
 	private String exCode;
+	private String exName;
 	private int count;
 	private int counting;
 	private String exerciseName;
@@ -19,8 +20,8 @@ public class DataDTO {
 		super();
 	}
 
-	public DataDTO(int code, String id, String pwd, String name, String confirm, String exCode, int count, int counting,
-			String exerciseName, String exerciseCount, String nickName, int exp) {
+	public DataDTO(int code, String id, String pwd, String name, String confirm, String exCode, String exName,
+			int count, int counting, String exerciseName, String exerciseCount, String nickName, int exp) {
 		super();
 		this.code = code;
 		this.id = id;
@@ -28,6 +29,7 @@ public class DataDTO {
 		this.name = name;
 		this.confirm = confirm;
 		this.exCode = exCode;
+		this.exName = exName;
 		this.count = count;
 		this.counting = counting;
 		this.exerciseName = exerciseName;
@@ -84,6 +86,14 @@ public class DataDTO {
 		this.exCode = exCode;
 	}
 
+	public String getExName() {
+		return exName;
+	}
+
+	public void setExName(String exName) {
+		this.exName = exName;
+	}
+
 	public int getCount() {
 		return count;
 	}
@@ -135,9 +145,11 @@ public class DataDTO {
 	@Override
 	public String toString() {
 		return "DataDTO [code=" + code + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", confirm=" + confirm
-				+ ", exCode=" + exCode + ", count=" + count + ", counting=" + counting + ", exerciseName="
-				+ exerciseName + ", exerciseCount=" + exerciseCount + ", nickName=" + nickName + ", exp=" + exp + "]";
+				+ ", exCode=" + exCode + ", exName=" + exName + ", count=" + count + ", counting=" + counting
+				+ ", exerciseName=" + exerciseName + ", exerciseCount=" + exerciseCount + ", nickName=" + nickName
+				+ ", exp=" + exp + "]";
 	}
+
 	
 	
 	
