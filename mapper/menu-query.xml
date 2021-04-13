@@ -60,8 +60,27 @@
           JOIN EXERCISE B ON(A.ING_CODE = B.EX_CODE)
         WHERE A.USER_ID =?
         ORDER BY B.EX_CODE DESC
-          
-    
+    </entry>
+    <entry key="changeLoginInformation">
+        UPDATE 
+               USER_INFO A
+           SET A.LOGIN_YN = 'Y'
+         WHERE A.USER_ID = ?
+    </entry>
+    <entry key="updateInformation">
+        SELECT
+               B.EX_NAME
+             , A.COUNT
+          FROM USER_EX_ED A
+          JOIN EXERCISE B ON A.EX_CODE = B.EX_CODE
+         WHERE A.USER_ID = ?
+    </entry>
+    <entry key="showExp">
+        SELECT
+              A.USER_NICKNAME
+            , A.USER_EXP 
+         FROM USER_INFO A
+        WHERE USER_ID = ?    
     </entry>
     
 </properties>

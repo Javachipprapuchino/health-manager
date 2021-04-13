@@ -109,6 +109,39 @@ public class MemberService {
 		return exList;
 	}
 
+	public int changeLoginInformation(DataDTO dataDTO) {
+		
+		Connection con = getConnection(); //컨넥션을 사용해서 연결을 시켜준다.
+		
+		int result = 0;
+		
+		result = datadao.changeLoginInformation(con, dataDTO); //dao에 있는 값을 가져와 result안에 담아준다.
+		
+		return result;
+	}
+	
+	public List<DataDTO> updateInformation(DataDTO dataDTO){
+		
+		Connection con = getConnection();
+		
+		List<DataDTO>  List = datadao.updateInformation(con, dataDTO);
+		
+		close(con);
+		
+		return List;
+	}
+	
+	public DataDTO showExp(DataDTO dataDTO) {
+
+		Connection con = getConnection();
+
+		DataDTO showExp = new DataDTO();
+
+		showExp = datadao.showExp(con, dataDTO);
+
+		return showExp;
+	}
+	
 
 
 	

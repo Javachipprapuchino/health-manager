@@ -1,5 +1,7 @@
 package com.greedy.member.controller;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import com.greedy.member.model.dto.DataDTO;
@@ -30,6 +32,43 @@ public class LoginController {
 		}
 
 		return firstLoginCheck;
+	}
+
+	public int changeLoginInformation(String id) {
+
+		dataDTO = new DataDTO();
+
+		dataDTO.setId(id);
+
+		int result = memberService.changeLoginInformation(dataDTO); // dao에 있는 값을 여기 result안에 담아준다.
+
+		return result;
+
+	}
+
+	public List<DataDTO> updateInformation(String id) {
+
+		dataDTO = new DataDTO();
+
+		dataDTO.setId(id);
+
+		List<DataDTO> list = memberService.updateInformation(dataDTO);
+
+		return list;
+
+	}
+
+	public DataDTO showExp(String id) {
+
+		dataDTO = new DataDTO();
+
+		dataDTO.setId(id);
+
+		// DataDTO dataDTO = new DataDTO();
+
+		dataDTO = memberService.showExp(dataDTO);
+
+		return dataDTO;
 	}
 
 }

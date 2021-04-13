@@ -91,7 +91,7 @@ public class DataDAO {
 		
 	}
 	
-	public DataDTO loginConfirm(Connection con,DataDTO dto) {
+	public DataDTO loginConfirm(Connection con,DataDTO dto) { // 아이디와 비밀번호도 같아야 로그인 가능하게하는 기능
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -215,6 +215,91 @@ public class DataDAO {
 		
 		return exList;
 		
+	}
+	
+	public int changeLoginInformation(Connection con,DataDTO dto) { //y/n바꿔주는 업데이트문
+		
+		PreparedStatement pstmt = null;
+		int changeLoginInformation = 0;
+		
+		String query = prop.getProperty("changeLoginInformation");
+		
+		try {
+			pstmt = con.prepareStatement(query); //작성한 쿼리문을 실행을 시킨다.
+			pstmt.setString(1, dto.getId()); // ? 안에 view에서 작성한 id를 넣는다.
+			
+			changeLoginInformation = pstmt.executeUpdate(); 
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+			
+		return changeLoginInformation;
+	}
+	
+	public List<DataDTO> updateInformation(Connection con,DataDTO dto) {// 마이페이지에서 사용하는 리스트에 값 넣어주기
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		List<DataDTO> List = null;
+		
+		String query = prop.getProperty("updateInformation");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, dto.getId()); 
+			
+			rset = pstmt.executeQuery();
+			
+			List = new ArrayList<>();
+			
+			while(rset.next()) {
+				DataDTO updateInformation = new DataDTO();
+				updateInformation.setExerciseName(rset.getString(1));
+				updateInformation.setExerciseCount(rset.getString(2));
+				
+				List.add(updateInformation);
+			} 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		
+		return List;
+	}
+	
+	public DataDTO showExp(Connection con, DataDTO dto) {// 경험치 올려주는 기능
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String query = prop.getProperty("showExp");
+//		DataDTO showExp = new DataDTO(); //이렇게 설정한 이유는 아이디와 
+		DataDTO showExp = null;
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, dto.getId()); // 쿼리문 ? 안에 view id텍스트 필드에서 적은 id를 넣는 문장이다.
+			rset = pstmt.executeQuery(); // 작성한 셀렉트 구문을 실행하고 그 값을 rset으로 넣어줍니다.
+			if (rset.next()) {
+				showExp = new DataDTO();
+				showExp.setNickName(rset.getString(1)); 
+				showExp.setExp(rset.getInt(2));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return showExp;
 	}
 	
 	

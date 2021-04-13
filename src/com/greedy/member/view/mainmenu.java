@@ -79,7 +79,7 @@ public class mainmenu extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			setVisible(false);
-			new mypage();
+			new mypage(loginId);
 
 		}
        });

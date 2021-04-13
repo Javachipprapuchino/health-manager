@@ -10,13 +10,17 @@ public class DataDTO {
 	private String exCode;
 	private int count;
 	private int counting;
+	private String exerciseName;
+	private String exerciseCount;
+	private String nickName;
+	private int exp;
 	
 	public DataDTO() {
 		super();
 	}
 
-	public DataDTO(int code, String id, String pwd, String name, String confirm, String exCode, int count,
-			int counting) {
+	public DataDTO(int code, String id, String pwd, String name, String confirm, String exCode, int count, int counting,
+			String exerciseName, String exerciseCount, String nickName, int exp) {
 		super();
 		this.code = code;
 		this.id = id;
@@ -26,6 +30,10 @@ public class DataDTO {
 		this.exCode = exCode;
 		this.count = count;
 		this.counting = counting;
+		this.exerciseName = exerciseName;
+		this.exerciseCount = exerciseCount;
+		this.nickName = nickName;
+		this.exp = exp;
 	}
 
 	public int getCode() {
@@ -92,14 +100,44 @@ public class DataDTO {
 		this.counting = counting;
 	}
 
+	public String getExerciseName() {
+		return exerciseName;
+	}
+
+	public void setExerciseName(String exerciseName) {
+		this.exerciseName = exerciseName;
+	}
+
+	public String getExerciseCount() {
+		return exerciseCount;
+	}
+
+	public void setExerciseCount(String exerciseCount) {
+		this.exerciseCount = exerciseCount;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public int getExp() {
+		return exp;
+	}
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
 	@Override
 	public String toString() {
 		return "DataDTO [code=" + code + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", confirm=" + confirm
-				+ ", exCode=" + exCode + ", count=" + count + ", counting=" + counting + "]";
+				+ ", exCode=" + exCode + ", count=" + count + ", counting=" + counting + ", exerciseName="
+				+ exerciseName + ", exerciseCount=" + exerciseCount + ", nickName=" + nickName + ", exp=" + exp + "]";
 	}
-
-	
-
 	
 	
 	

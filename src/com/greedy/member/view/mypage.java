@@ -4,13 +4,20 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+import com.greedy.member.controller.LoginController;
+import com.greedy.member.model.dto.DataDTO;
+
 import java.awt.*;
+import java.util.List;
 
 public class mypage extends JFrame {
 	private Font f1,f2;
+	private LoginController loginController = new LoginController();
 	
-	public mypage() {
+	public mypage(String loginId) {
 		
+		DataDTO dataDTO = loginController.showExp(loginId);
+		List<DataDTO> listDTO = loginController.updateInformation(loginId);
 		
 		Dimension dim = new Dimension(350, 550);  //단순 2차원값 입력을 위한 클래스
         JFrame frame = new JFrame("마이페이지");
@@ -25,21 +32,20 @@ public class mypage extends JFrame {
         
 
         String header[]={"운동명", "횟수"};
-        String contents[][]={
-                {"달리기", "50",},
-                {"걷기", "70",},
-                {"윗몸일으키기", "80",},
-                {"푸시업", "80",},
-                {"운동1", "85",},
-                {"운동2", "80",},
-                {"운동3", "80",},
-                {"운동4", "80",},
-                {"운동5", "80",},
-                {"운동6", "80",},
-                {"운동7", "80",},
-                {"운동8", "80",}
-        };
+//      for(int i = 1; i < 20; i++) {
+//  	  for(int j = 1; j < 20; j++) {
+//  		  String content[][] = new String[i][j];
+//  		  {listDTO.get(i).getExerciseName(), listDTO.get(j).getExerciseCount()}
+//  	  }
+//    };
+//   
+		String contents[][] = {
 
+				{ listDTO.get(0).getExerciseName(), listDTO.get(0).getExerciseCount() },
+//				{ listDTO.get(1).getExerciseName(), listDTO.get(1).getExerciseCount() }
+
+		};
+    	
         JTable table = new JTable(contents, header);
        
         JScrollPane jscp1 = new JScrollPane(table); //이런식으로 생성시에 테이블을 넘겨주어야 정상적으로 볼 수 있다.
@@ -95,7 +101,7 @@ public class mypage extends JFrame {
         
 	}
 
-    public static void main(String args[]){
-        new mypage();
-    }
+//    public static void main(String args[]){
+//        new mypage();
+//    }
 }
