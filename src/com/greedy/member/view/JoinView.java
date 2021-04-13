@@ -116,6 +116,7 @@ public class JoinView extends JFrame {
 							controller.registNewMember(inputMember(ID.getText(), pwd, Username.getText()));
 							setVisible(false);
 							new PopupPage();
+							
 						}
 						else {
 							new ErrorPage();

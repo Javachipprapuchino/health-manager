@@ -84,7 +84,7 @@ public class LoginView extends JFrame {
 													  //여기서 1만 나오기 때문에 이 조건을 통과해 업데이트가 실행되고 아래의 코드가 실행된다.
 						JOptionPane.showMessageDialog(null, "운동 강도 선택 화면으로 이동합니다");
 						setVisible(false);
-						new mainmenu(text.getText());
+						new Difficulty(text.getText());
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해 주세요.");

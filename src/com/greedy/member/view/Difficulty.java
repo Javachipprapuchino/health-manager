@@ -16,7 +16,7 @@ public class Difficulty extends JFrame{
 private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 
 	
-	public Difficulty() {
+	public Difficulty(String loginId) {
 	
 		//프레임 생성하기
 		JFrame frm = new JFrame("난이도 선택");
@@ -107,7 +107,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 		
 	}
 	
-	public static void main(String[] args) {
-		new Difficulty();
-	}
+//	public static void main(String[] args) {
+//		new Difficulty();
+//	}
 }

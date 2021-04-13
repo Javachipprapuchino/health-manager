@@ -20,8 +20,9 @@ public class mypage extends JFrame {
 		DataDTO dataDTO = loginController.showExp(loginId);
 		List<DataDTO> listDTO = loginController.updateInformation(loginId);
 		
-		Dimension dim = new Dimension(350, 550);  //단순 2차원값 입력을 위한 클래스
-        JFrame frame = new JFrame("마이페이지");
+		Dimension dim = new Dimension(350, 550);//단순 2차원값 입력을 위한 클래스
+		
+		JFrame frame = new JFrame("마이페이지");
         frame.setLocation(0, 0);				  //출력 위치를 화면 좌상단에 위치
         frame.setPreferredSize(dim);              //위 코드에서 지정한 좌표를 프레임 사이즈로 사용
         frame.setLayout(null);                    //레이아웃을 사용하지 않고 절대좌표계 사용
