@@ -2,6 +2,7 @@ package com.greedy.member.view;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 import com.greedy.member.controller.LoginController;
@@ -28,25 +29,14 @@ public class mypage extends JFrame {
         f1 = new Font("돋움",Font.PLAIN,15);
         f2 = new Font("바탕",Font.BOLD,30);
         
-        
-        
-
         String header[]={"운동명", "횟수"};
-//      for(int i = 1; i < 20; i++) {
-//  	  for(int j = 1; j < 20; j++) {
-//  		  String content[][] = new String[i][j];
-//  		  {listDTO.get(i).getExerciseName(), listDTO.get(j).getExerciseCount()}
-//  	  }
-//    };
-//   
-		String contents[][] = {
-
-				{ listDTO.get(0).getExerciseName(), listDTO.get(0).getExerciseCount() },
-//				{ listDTO.get(1).getExerciseName(), listDTO.get(1).getExerciseCount() }
-
+        DefaultTableModel model = new DefaultTableModel(header,0);
+        JTable table = new JTable(model);
+		for (int i = 0; i < 9; i++) {
+			model.addRow(new Object[] { listDTO.get(i).getExerciseName(), listDTO.get(i).getExerciseCount() });
 		};
-    	
-        JTable table = new JTable(contents, header);
+
+//        JTable table = new JTable(contents, header);
        
         JScrollPane jscp1 = new JScrollPane(table); //이런식으로 생성시에 테이블을 넘겨주어야 정상적으로 볼 수 있다.
                                                     //jscp1.add(table); 과 같이 실행하면, 정상적으로 출력되지 않음.
@@ -74,7 +64,7 @@ public class mypage extends JFrame {
         frame.add(jl);
         jl.setFont(f1);
         
-        JLabel jl1 = new JLabel("xx님의 레벨 : x");
+        JLabel jl1 = new JLabel(dataDTO.getNickName() + "님의 레벨 : " + dataDTO.getExp()/1000);
         jl1.setLocation(50,30);
         jl1.setSize(300,40);
         frame.add(jl1);
@@ -86,13 +76,11 @@ public class mypage extends JFrame {
         frame.add(jl2);
         jl2.setFont(f1);
         
-        int minimum = 0;
-        int maximum = 100;
-        JProgressBar progress = new JProgressBar( minimum, maximum);
+        JProgressBar progress = new JProgressBar();
         progress.setStringPainted(true);
         progress.setLocation(100,70);
         progress.setSize(100,20);
-        progress.setValue(50);
+        progress.setValue(dataDTO.getExp()/10000);
         frame.add(progress);
         
         frame.pack();

@@ -278,7 +278,8 @@ public class mainmenu extends JFrame {
        
     
 		  setSize(350, 550);
-	       setVisible(true);
+		  setLocationRelativeTo(null);
+	      setVisible(true);
 		
    }
    

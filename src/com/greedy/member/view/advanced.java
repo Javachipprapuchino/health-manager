@@ -23,6 +23,7 @@ public advanced() {
 		/* Layout지정 없이 위치 지정하면서 배치하는 방법 */
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 60, 350, 550);
+		setLocationRelativeTo(null);
 		setVisible(true);
 		setTitle("초급리스트");
 		
