@@ -1,6 +1,7 @@
 	package com.greedy.member.view;
 	
 	import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -20,12 +21,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-import com.greedy.member.controller.LoginController;
 import com.greedy.member.model.dto.DataDTO;
 import com.greedy.member.model.service.MemberService;
 	
 	public class ViewIntermediate extends JFrame {
 		
+		private Font font1;
 	//	public static void main(String[] args) {
 	//		new advanced();
 	//	}
@@ -37,6 +38,8 @@ import com.greedy.member.model.service.MemberService;
 			
 			//프레임 생성하기
 			JFrame frm = new JFrame("중급리스트");
+			
+			font1 = new Font("맑은고딕",Font.BOLD,12);
 			
 			
 			//프레임 크기 설정
@@ -77,10 +80,17 @@ import com.greedy.member.model.service.MemberService;
 	
 	//	------------------------------------------------------------------
 	
-	JLabel lb = new JLabel("중급 운동 리스트",JLabel.CENTER);
-	//lb.setLocation(center);
-	lb.setSize(350, 100);
-	frm.add(lb);
+//	JLabel lb = new JLabel("중급 운동 리스트",JLabel.CENTER);
+//	//lb.setLocation(center);
+//	lb.setSize(350, 100);
+//	frm.add(lb);
+			
+			Image icon = new ImageIcon("intermediate/jung.png").getImage();
+			JLabel btn = new JLabel(new ImageIcon(icon));
+			btn.setLocation(70, 20);
+			btn.setSize(200,100);
+			back.add(btn);
+			frm.add(back);
 	
 	//=============================================================
 	
@@ -114,6 +124,7 @@ import com.greedy.member.model.service.MemberService;
 	JLabel lb1 = new JLabel("벤치프레스");
 	lb1.setLocation(140, 110);
 	lb1.setSize(100, 30);
+	lb1.setFont(font1);
 	
 	
 	
@@ -173,6 +184,7 @@ import com.greedy.member.model.service.MemberService;
 		JLabel lb2 = new JLabel("덤벨플라이");
 		lb2.setLocation(140, 210);
 		lb2.setSize(100, 30);
+		lb2.setFont(font1);
 	
 	//=======================================================================================
 	
@@ -211,7 +223,7 @@ import com.greedy.member.model.service.MemberService;
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new popup1();			
+				new popup2();			
 			}
 		}); 
 			
@@ -230,6 +242,7 @@ import com.greedy.member.model.service.MemberService;
 		JLabel lb3 = new JLabel("풀업");
 		lb3.setLocation(140, 310);
 		lb3.setSize(100, 30);
+		lb3.setFont(font1);
 		
 		
 	//=======================================================================================
@@ -269,7 +282,7 @@ import com.greedy.member.model.service.MemberService;
 				
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					new popup1();			
+					new popup3();			
 				}
 			}); 
 	//=======================================================================================
@@ -347,7 +360,7 @@ import com.greedy.member.model.service.MemberService;
 	   
 	
 	//
-	back.add(lb);
+//	back.add(lb);
 	back.add(lb1);
 	back.add(lb2);
 	back.add(lb3);
@@ -430,7 +443,7 @@ import com.greedy.member.model.service.MemberService;
 			setBounds(300, 60, 350, 550);
 			setVisible(true);
 			setLocationRelativeTo(null);
-			setTitle("딥스");
+			setTitle("벤치프레스");
 			icon = new ImageIcon("icon/background.png");
 	
 			// 배경 Panel 생성후 컨텐츠페인으로 지정
@@ -458,7 +471,7 @@ import com.greedy.member.model.service.MemberService;
 				public void actionPerformed(ActionEvent e) {
 					
 					try {
-						Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=pQSfXvaQGas&t=182s"));
+						Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=0DsXTSHo3lU"));
 					} catch (IOException | URISyntaxException e1) {
 						e1.printStackTrace();
 					}
@@ -506,8 +519,180 @@ import com.greedy.member.model.service.MemberService;
 			setContentPane(scrollPane);
 		}}
 		
+	public class popup2 extends JFrame{
+			
+			public popup2(){
+			JScrollPane scrollPane;
+			ImageIcon icon;
+	
+			/* Layout지정 없이 위치 지정하면서 배치하는 방법 */
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(300, 60, 350, 550);
+			setVisible(true);
+			setLocationRelativeTo(null);
+			setTitle("덤벨플라이");
+			icon = new ImageIcon("icon/background.png");
+	
+			// 배경 Panel 생성후 컨텐츠페인으로 지정
+			JPanel background = new JPanel() {
+				public void paintComponent(Graphics g) {
+					g.drawImage(icon.getImage(), 0, 0, null);
+					
+					setOpaque(false);
+					super.paintComponent(g);
+				}
+			};
+	
+	//			------------------------------------------------------------------
+			background.setLayout(null);
+			
+			ImageIcon deepCon = new ImageIcon("icon/play.png");
+			JButton btn4 = new JButton(deepCon);
+		    btn4.setContentAreaFilled(false);
+		    btn4.setBorderPainted(false);
+			btn4.setLocation(18, 24);
+			btn4.setSize(300, 300);
+			btn4.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					try {
+						Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=HcDzxNNrSBo"));
+					} catch (IOException | URISyntaxException e1) {
+						e1.printStackTrace();
+					}
+				}
+			});
+			
+			  ImageIcon backCon = new ImageIcon("icon/back.png");
+		      JButton backb = new JButton(backCon);
+		      backb.setLocation(0,461);
+		      backb.setSize(70,50);
+		      backb.setContentAreaFilled(false);
+		      backb.setBorderPainted(false);
+		      add(backb);
+		      backb.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					setVisible(false);
+					dispose();
+				}
+			});
+			
+//			JButton exit = new JButton("닫기");
+//			exit.setBounds(0, 250, 350, 40);
+////			this.add(exit);
+//			
+//			exit.addActionListener(new ActionListener() {
+//				
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					setVisible(false);
+//						dispose();
+//				}
+//			});
+//			this.dispose();
+			
+			
+	//		https://youtu.be/pQSfXvaQGas
+			
+			background.add(backb);
+			background.add(btn4);
+			
+			scrollPane = new JScrollPane(background);
+			setContentPane(scrollPane);
+		}}
+		
+	public class popup3 extends JFrame{
+		
+		public popup3(){
+		JScrollPane scrollPane;
+		ImageIcon icon;
+
+		/* Layout지정 없이 위치 지정하면서 배치하는 방법 */
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 60, 350, 550);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setTitle("풀업");
+		icon = new ImageIcon("icon/background.png");
+
+		// 배경 Panel 생성후 컨텐츠페인으로 지정
+		JPanel background = new JPanel() {
+			public void paintComponent(Graphics g) {
+				g.drawImage(icon.getImage(), 0, 0, null);
+				
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
+
+//			------------------------------------------------------------------
+		background.setLayout(null);
+		
+		ImageIcon deepCon = new ImageIcon("icon/play.png");
+		JButton btn4 = new JButton(deepCon);
+	    btn4.setContentAreaFilled(false);
+	    btn4.setBorderPainted(false);
+		btn4.setLocation(18, 24);
+		btn4.setSize(300, 300);
+		btn4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=nWhS28U6bCY"));
+				} catch (IOException | URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		  ImageIcon backCon = new ImageIcon("icon/back.png");
+	      JButton backb = new JButton(backCon);
+	      backb.setLocation(0,461);
+	      backb.setSize(70,50);
+	      backb.setContentAreaFilled(false);
+	      backb.setBorderPainted(false);
+	      add(backb);
+	      backb.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				dispose();
+			}
+		});
+		
+//		JButton exit = new JButton("닫기");
+//		exit.setBounds(0, 250, 350, 40);
+////		this.add(exit);
+//		
+//		exit.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				setVisible(false);
+//					dispose();
+//			}
+//		});
+//		this.dispose();
 		
 		
+//		https://youtu.be/pQSfXvaQGas
+		
+		background.add(backb);
+		background.add(btn4);
+		
+		scrollPane = new JScrollPane(background);
+		setContentPane(scrollPane);
+	}}
+	
 		
 	}
 	
