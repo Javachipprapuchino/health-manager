@@ -235,5 +235,204 @@ public class DataDAO {
 		return showExp;
 	}
 	
+	public int insertSpinner1(Connection con, DataDTO dto) {
+
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+
+			String query = prop.getProperty("insertSpinner1");
+			
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, dto.getId());
+			pstmt.setInt(2, dto.getNo1());
+			pstmt.setString(3, dto.getExcode1());
+			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		return result;
+	}
+
+	
+	public int insertSpinner2(Connection con, DataDTO dto) {
+
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+
+			String query = prop.getProperty("insertSpinner1");
+			
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, dto.getId());
+			pstmt.setInt(2, dto.getNo2());
+			pstmt.setString(3, dto.getExcode2());
+			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		return result;
+	}
+	
+	public int insertSpinner3(Connection con, DataDTO dto) {
+
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+
+			String query = prop.getProperty("insertSpinner1");
+			
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, dto.getId());
+			pstmt.setInt(2, dto.getNo3());
+			pstmt.setString(3, dto.getExcode3());
+			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		return result;
+	}
+	
+	
+	
+	
+	public int insertSpinner21(Connection con, DataDTO dto) {
+
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+
+			String query = prop.getProperty("insertSpinner2");
+			
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, dto.getNo1());
+			pstmt.setString(2, dto.getId());
+			pstmt.setString(3, dto.getExcode1());
+			pstmt.setString(4, dto.getExcode1());
+			pstmt.setString(5, dto.getId());
+			pstmt.setString(6, dto.getExcode1());
+			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		return result;
+	}
+
+	
+	public int insertSpinner22(Connection con, DataDTO dto) {
+
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+
+			String query = prop.getProperty("insertSpinner2");
+			
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, dto.getNo2());
+			pstmt.setString(2, dto.getId());
+			pstmt.setString(3, dto.getExcode2());
+			pstmt.setString(4, dto.getExcode2());
+			pstmt.setString(5, dto.getId());
+			pstmt.setString(6, dto.getExcode2());
+			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		return result;
+	}
+	
+	public int insertSpinner23(Connection con, DataDTO dto) {
+
+
+		PreparedStatement pstmt = null;
+
+		int result = 0;
+
+		try {
+
+			String query = prop.getProperty("insertSpinner2");
+			
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, dto.getNo3());
+			pstmt.setString(2, dto.getId());
+			pstmt.setString(3, dto.getExcode3());
+			pstmt.setString(4, dto.getExcode3());
+			pstmt.setString(5, dto.getId());
+			pstmt.setString(6, dto.getExcode3());
+			
+			result = pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+
+			System.out.println(e.toString());
+
+		} finally {
+			close(pstmt);
+			close(con);
+		}
+		return result;
+	}
 	
 }
