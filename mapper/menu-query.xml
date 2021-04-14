@@ -135,7 +135,7 @@
 		, EX_CODE
 		)
 		SELECT
-		  ? <!-- 'COUNT'	0 	 -->
+		  0 <!-- 'COUNT'	0 	 -->
 		, ? <!-- 'USER04'	1 	 -->
 		, (SELECT
 		EX_DIF_CODE

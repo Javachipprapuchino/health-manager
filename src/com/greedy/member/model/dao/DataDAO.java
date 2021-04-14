@@ -345,12 +345,12 @@ public class DataDAO {
 			
 			pstmt = con.prepareStatement(query);
 			
-			pstmt.setInt(1, dto.getNo1());
-			pstmt.setString(2, dto.getId());
+			
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getExcode1());
 			pstmt.setString(3, dto.getExcode1());
-			pstmt.setString(4, dto.getExcode1());
-			pstmt.setString(5, dto.getId());
-			pstmt.setString(6, dto.getExcode1());
+			pstmt.setString(4, dto.getId());
+			pstmt.setString(5, dto.getExcode1());
 			
 			result = pstmt.executeUpdate();
 			
@@ -380,12 +380,11 @@ public class DataDAO {
 			
 			pstmt = con.prepareStatement(query);
 			
-			pstmt.setInt(1, dto.getNo2());
-			pstmt.setString(2, dto.getId());
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getExcode2());
 			pstmt.setString(3, dto.getExcode2());
-			pstmt.setString(4, dto.getExcode2());
-			pstmt.setString(5, dto.getId());
-			pstmt.setString(6, dto.getExcode2());
+			pstmt.setString(4, dto.getId());
+			pstmt.setString(5, dto.getExcode2());
 			
 			result = pstmt.executeUpdate();
 			
@@ -414,12 +413,11 @@ public class DataDAO {
 			
 			pstmt = con.prepareStatement(query);
 			
-			pstmt.setInt(1, dto.getNo3());
-			pstmt.setString(2, dto.getId());
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getExcode3());
 			pstmt.setString(3, dto.getExcode3());
-			pstmt.setString(4, dto.getExcode3());
-			pstmt.setString(5, dto.getId());
-			pstmt.setString(6, dto.getExcode3());
+			pstmt.setString(4, dto.getId());
+			pstmt.setString(5, dto.getExcode3());
 			
 			result = pstmt.executeUpdate();
 			
