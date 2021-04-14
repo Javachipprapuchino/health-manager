@@ -128,9 +128,12 @@ import com.greedy.member.model.service.MemberService;
 	spinner1.setLocation(140,150);
 	spinner1.setSize(60,20);
 	
-	JLabel lb11 = new JLabel("자세히");
+	ImageIcon lookCon = new ImageIcon("icon/돋보기.png");
+	JButton lb11 = new JButton(lookCon);
+    lb11.setContentAreaFilled(false);
+    lb11.setBorderPainted(false);
 	lb11.setLocation(260, 100);
-	lb11.setSize(80, 80);
+	lb11.setSize(50, 50);
 	lb11.addMouseListener(new MouseListener() {
 		
 		@Override
@@ -272,7 +275,10 @@ import com.greedy.member.model.service.MemberService;
 	   
 
 		
-	   JButton btn4 = new JButton("추가");
+		ImageIcon okCon = new ImageIcon("icon/ok.png");
+		JButton btn4 = new JButton(okCon);
+		btn4.setContentAreaFilled(false);
+		btn4.setBorderPainted(false);
 		btn4.setLocation(130, 400);
 		btn4.setSize(80, 40);
 		btn4.addActionListener(new ActionListener() {
@@ -419,6 +425,7 @@ public class popup1 extends JFrame{
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(300, 60, 350, 550);
 			setVisible(true);
+			setLocationRelativeTo(null);
 			setTitle("딥스");
 //			setLayout();
 			icon = new ImageIcon("icon/background.png");
@@ -436,6 +443,7 @@ public class popup1 extends JFrame{
 	//			------------------------------------------------------------------
 			background.setLayout(null);
 			
+			
 			JButton btn4 = new JButton("자세히 배우기");
 			btn4.setLocation(40, 100);
 			btn4.setSize(250, 70);
@@ -452,24 +460,40 @@ public class popup1 extends JFrame{
 				}
 			});
 			
-			JButton exit = new JButton("닫기");
-			exit.setBounds(0, 250, 350, 40);
-//			this.add(exit);
-			
-			exit.addActionListener(new ActionListener() {
+			ImageIcon backCon = new ImageIcon("icon/back.png");
+		       JButton backb = new JButton(backCon);
+		       backb.setLocation(0,461);
+		       backb.setSize(70,50);
+		       backb.setContentAreaFilled(false);
+		       backb.setBorderPainted(false);
+		       add(backb);
+		       backb.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
 					setVisible(false);
-						dispose();
+					dispose();
 				}
 			});
+
+//			exit.setBounds(0, 250, 350, 40);
+////			this.add(exit);
+//			
+//			exit.addActionListener(new ActionListener() {
+//				
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					setVisible(false);
+//						dispose();
+//				}
+//			});
 //			this.dispose();
 			
 			
 	//		https://youtu.be/pQSfXvaQGas
 			
-			background.add(exit);
+			background.add(backb);
 			background.add(btn4);
 			
 			scrollPane = new JScrollPane(background);

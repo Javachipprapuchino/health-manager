@@ -269,7 +269,10 @@ import com.greedy.member.model.service.MemberService;
 	   
 
 		
-	   JButton btn4 = new JButton("추가");
+		ImageIcon okCon = new ImageIcon("icon/ok.png");
+		JButton btn4 = new JButton(okCon);
+		btn4.setContentAreaFilled(false);
+		btn4.setBorderPainted(false);
 		btn4.setLocation(130, 400);
 		btn4.setSize(80, 40);
 		btn4.addActionListener(new ActionListener() {
@@ -419,6 +422,7 @@ import com.greedy.member.model.service.MemberService;
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(300, 60, 350, 550);
 			setVisible(true);
+			setLocationRelativeTo(null);
 			setTitle("딥스");
 			icon = new ImageIcon("icon/background.png");
 	
@@ -451,24 +455,41 @@ import com.greedy.member.model.service.MemberService;
 				}
 			});
 			
-			JButton exit = new JButton("닫기");
-			exit.setBounds(0, 250, 350, 40);
-//			this.add(exit);
-			
-			exit.addActionListener(new ActionListener() {
+			  ImageIcon backCon = new ImageIcon("icon/back.png");
+		      JButton backb = new JButton(backCon);
+		      backb.setLocation(0,461);
+		      backb.setSize(70,50);
+		      backb.setContentAreaFilled(false);
+		      backb.setBorderPainted(false);
+		      add(backb);
+		      backb.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
 					setVisible(false);
-						dispose();
+					dispose();
 				}
 			});
+			
+//			JButton exit = new JButton("닫기");
+//			exit.setBounds(0, 250, 350, 40);
+////			this.add(exit);
+//			
+//			exit.addActionListener(new ActionListener() {
+//				
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					setVisible(false);
+//						dispose();
+//				}
+//			});
 //			this.dispose();
 			
 			
 	//		https://youtu.be/pQSfXvaQGas
 			
-			background.add(exit);
+			background.add(backb);
 			background.add(btn4);
 			
 			scrollPane = new JScrollPane(background);
