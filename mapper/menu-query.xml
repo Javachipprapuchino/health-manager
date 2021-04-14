@@ -45,6 +45,18 @@
         AND EX_CODE = ?
     </entry>
     
+        <entry key="updateExp">
+        UPDATE USER_INFO
+           SET USER_EXP = (SELECT
+                              SUM(D.EX_EXP * E.COUNT)
+                             FROM USER_INFO I
+                             JOIN USER_EX_ED E ON(I.USER_ID = E.USER_ID)
+                             JOIN EXERCISE X ON(E.EX_CODE = X.EX_CODE)
+                             JOIN DIFFICULTY D ON(X.EX_DIF_CODE = D.EX_DIF_CODE)
+                            WHERE I.USER_ID = ?)
+         WHERE USER_ID = ?
+    </entry>
+    
     <entry key="selectExName">
         SELECT
                EX_CODE

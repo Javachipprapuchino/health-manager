@@ -105,20 +105,20 @@ public class mainmenu extends JFrame {
        back.setBounds(0,0,350,550); 
        
        
-       JButton backb = new JButton("뒤");
-       backb.setLocation(0,0);
-       backb.setSize(100,50);
-       backb.setFocusPainted(false);
-       add(backb);
-       backb.addActionListener(new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			setVisible(false);
-			new Difficulty(loginId);
-		}
-	});
+//       JButton backb = new JButton("뒤");
+//       backb.setLocation(0,0);
+//       backb.setSize(100,50);
+//       backb.setFocusPainted(false);
+//       add(backb);
+//       backb.addActionListener(new ActionListener() {
+//		
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			// TODO Auto-generated method stub
+//			setVisible(false);
+//			new Difficulty(loginId);
+//		}
+//	});
      // ///// 
        pm_item3.addActionListener(new ActionListener() {
 		
