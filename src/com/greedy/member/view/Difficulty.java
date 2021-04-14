@@ -57,7 +57,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//초급 클래스 가져오기
-				elementary a = new elementary();
+				new ViewElemenaty(loginId);
 				frm.dispose();
 			}
 		});
@@ -68,7 +68,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//중급 클래스 가져오기
-				intermediate b = new intermediate();
+				new ViewIntermediate(loginId);
 				frm.dispose();
 			}
 		});
@@ -79,7 +79,7 @@ private Font font = new Font("맑은 고딕", Font.PLAIN, 30);
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//고급 클래스 가져오기
-				advanced c = new advanced();
+				new ViewAdvanced(loginId);
 				frm.dispose();
 
 			}
