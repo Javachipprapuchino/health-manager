@@ -97,5 +97,59 @@
         WHERE USER_ID = ?    
     </entry>
     
+    <entry key="insertSpinner1">
+        INSERT 
+          INTO USER_EX_ING
+        ( 
+          USER_ID
+        , COUNTING
+        , ING_CODE 
+        )
+    	VALUES
+    	(
+    	  ?
+    	, ?
+    	, ?
+    	)
+    </entry>
+    
+     <entry key="insertSpinner2">
+        INSERT
+		  INTO USER_EX_ED
+		(
+		  COUNT
+		, USER_ID
+		, EX_DIF_CODE
+		, EX_CODE
+		)
+		SELECT
+		  ? <!-- 'COUNT'	0 	 -->
+		, ? <!-- 'USER04'	1 	 -->
+		, (SELECT
+		EX_DIF_CODE
+		FROM 
+		EXERCISE
+		WHERE EX_CODE = ? <!-- 'E03'	 	2		-->
+		)
+		, ? <!-- 'E03' 		3		-->
+		FROM DUAL
+		WHERE 1=1 AND NOT EXISTS
+		( 
+		SELECT 
+		USER_ID
+		,EX_CODE
+		FROM
+		 USER_EX_ED 
+		
+		WHERE
+		1=1
+		AND
+		 USER_ID = ? <!-- 'USER04' 		4		-->
+		AND
+		 EX_CODE = ? <!-- 'E03' 		5		-->
+		 )
+
+    </entry>
+    
 </properties>
 
