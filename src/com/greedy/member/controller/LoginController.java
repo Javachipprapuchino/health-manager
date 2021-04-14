@@ -23,7 +23,7 @@ public class LoginController {
 		dataDTO = memberService.loginConfirm(dataDTO);
 
 		String firstLoginCheck = "";
-		if (dataDTO != null) {
+		if (dataDTO != null) { // dataDTO가 널이 아닐경우 view안에 작성한 비밀번호와 db안에 있는 비밀번호가 같으면 y/n을 가지고 뷰의 조건문으로 가는 코드
 			if (dataDTO.getPwd().equals(pwd)) {
 				firstLoginCheck = dataDTO.getConfirm();
 			}

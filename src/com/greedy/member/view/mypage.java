@@ -23,17 +23,22 @@ public class mypage extends JFrame {
 		Dimension dim = new Dimension(350, 550);//단순 2차원값 입력을 위한 클래스
 		
 		JFrame frame = new JFrame("마이페이지");
-        frame.setLocation(0, 0);				  //출력 위치를 화면 좌상단에 위치
+		frame.setLocation(0, 0);
+		frame.setLocationRelativeTo(null);
+		
+		
+//      frame.setLocation(null);				  //출력 위치를 화면 좌상단에 위치
         frame.setPreferredSize(dim);              //위 코드에서 지정한 좌표를 프레임 사이즈로 사용
         frame.setLayout(null);                    //레이아웃을 사용하지 않고 절대좌표계 사용
         
+
         f1 = new Font("돋움",Font.PLAIN,15);
         f2 = new Font("바탕",Font.BOLD,30);
         
         String header[]={"운동명", "횟수"};
         DefaultTableModel model = new DefaultTableModel(header,0);
         JTable table = new JTable(model);
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < listDTO.size(); i++) {
 			model.addRow(new Object[] { listDTO.get(i).getExerciseName(), listDTO.get(i).getExerciseCount() });
 		};
 
@@ -57,8 +62,6 @@ public class mypage extends JFrame {
         jscp1.setSize(300,160);
         frame.add(jscp1);
         
-
-
         JLabel jl = new JLabel("내 정보");
         jl.setLocation(130,10);
         jl.setSize(100,20);
