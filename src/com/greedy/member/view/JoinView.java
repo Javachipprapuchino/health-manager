@@ -1,5 +1,6 @@
 package com.greedy.member.view;
 
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 import com.greedy.member.controller.JoinController;
 
@@ -26,36 +26,47 @@ public class JoinView extends JFrame {
 	JPasswordField Password,Confirm;
 	JTextField ID;
 	JTextField Username;
+	private Font font1;
+	private Font font2;
+	
+	
 	public JoinView() {
 
+		super("회원가입");
 		this.setSize(350, 550);
 		setLocationRelativeTo(null);
+		font1 = new Font("Bauhaus 93",Font.PLAIN,50);
+		font2 = new Font("맑은 고딕", Font.BOLD, 15);
 
 		JPanel panel = new JPanel();
 		panel.setSize(400, 600);
 		panel.setLayout(null);
-//		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(panel);
-//		panel.setLayout(null);
 
-		JLabel join = new JLabel("회원가입");
-		join.setBounds(140, 41, 101, 20);
+		JLabel join = new JLabel("JOIN");
+		join.setFont(font1);
+		join.setBounds(130, -55, 221, 220);
 		panel.add(join); // 패널에 라벨을 붙착한거다.
+		
 
 		JLabel id = new JLabel("아이디");
 		id.setBounds(40, 113, 64, 20);
+		id.setFont(font2);
 		panel.add(id);
 
 		JLabel password = new JLabel("비밀번호");
 		password.setBounds(40, 163, 64, 20);
+		password.setFont(font2);
 		panel.add(password);
 
-		JLabel confirm = new JLabel("비밀번호확인");
+		JLabel confirm = new JLabel("비번확인");
 		confirm.setBounds(40, 210, 90, 20);
+		confirm.setFont(font2);
 		panel.add(confirm);
 
 		JLabel username = new JLabel("닉네임");
 		username.setBounds(40, 257, 64, 20);
+		username.setFont(font2);
 		panel.add(username);
 
 		ID = new JTextField();
@@ -80,7 +91,7 @@ public class JoinView extends JFrame {
 		panel.add(Username);
 
 		JButton button = new JButton("가입");
-		button.setBounds(120, 363, 139, 29);
+		button.setBounds(120, 300, 139, 29);
 		panel.add(button);
 
 		button.addActionListener(new ActionListener() {
@@ -131,9 +142,9 @@ public class JoinView extends JFrame {
 			}
 		});
 
-		Image backimg = new ImageIcon("icon/회원가입.png").getImage().getScaledInstance(500, 800, 0);
+		Image backimg = new ImageIcon("icon/background.png").getImage();
 		JLabel back = new JLabel(new ImageIcon(backimg));
-		back.setBounds(0, 0, 400, 600);
+		back.setBounds(0, 0, 350, 550);
 
 		panel.add(back);
 
