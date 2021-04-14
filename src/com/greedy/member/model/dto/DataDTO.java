@@ -13,6 +13,7 @@ public class DataDTO {
 	private int no1;
 	private int no2;
 	private int no3;
+	private String exName;
 	private String excode1;
 	private String excode2;
 	private String excode3;
@@ -28,8 +29,8 @@ public class DataDTO {
 	}
 
 	public DataDTO(int code, String id, String pwd, String name, String confirm, String exCode, int count, int counting,
-			int no1, int no2, int no3, String excode1, String excode2, String excode3, String exerciseName,
-			String exerciseCount, String nickName, int exp) {
+			int no1, int no2, int no3, String exName, String excode1, String excode2, String excode3,
+			String exerciseName, String exerciseCount, String nickName, int exp) {
 		super();
 		this.code = code;
 		this.id = id;
@@ -42,6 +43,7 @@ public class DataDTO {
 		this.no1 = no1;
 		this.no2 = no2;
 		this.no3 = no3;
+		this.exName = exName;
 		this.excode1 = excode1;
 		this.excode2 = excode2;
 		this.excode3 = excode3;
@@ -139,6 +141,14 @@ public class DataDTO {
 		this.no3 = no3;
 	}
 
+	public String getExName() {
+		return exName;
+	}
+
+	public void setExName(String exName) {
+		this.exName = exName;
+	}
+
 	public String getExcode1() {
 		return excode1;
 	}
@@ -199,21 +209,12 @@ public class DataDTO {
 	public String toString() {
 		return "DataDTO [code=" + code + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", confirm=" + confirm
 				+ ", exCode=" + exCode + ", count=" + count + ", counting=" + counting + ", no1=" + no1 + ", no2=" + no2
-				+ ", no3=" + no3 + ", excode1=" + excode1 + ", excode2=" + excode2 + ", excode3=" + excode3
-				+ ", exerciseName=" + exerciseName + ", exerciseCount=" + exerciseCount + ", nickName=" + nickName
-				+ ", exp=" + exp + ", getCode()=" + getCode() + ", getId()=" + getId() + ", getPwd()=" + getPwd()
-				+ ", getName()=" + getName() + ", getConfirm()=" + getConfirm() + ", getExCode()=" + getExCode()
-				+ ", getCount()=" + getCount() + ", getCounting()=" + getCounting() + ", getNo1()=" + getNo1()
-				+ ", getNo2()=" + getNo2() + ", getNo3()=" + getNo3() + ", getExcode1()=" + getExcode1()
-				+ ", getExcode2()=" + getExcode2() + ", getExcode3()=" + getExcode3() + ", getExerciseName()="
-				+ getExerciseName() + ", getExerciseCount()=" + getExerciseCount() + ", getNickName()=" + getNickName()
-				+ ", getExp()=" + getExp() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", no3=" + no3 + ", exName=" + exName + ", excode1=" + excode1 + ", excode2=" + excode2 + ", excode3="
+				+ excode3 + ", exerciseName=" + exerciseName + ", exerciseCount=" + exerciseCount + ", nickName="
+				+ nickName + ", exp=" + exp + "]";
 	}
 
-	
 
-	
 	
 	
 	
