@@ -182,6 +182,30 @@ public class MemberService {
 
 		return showExp;
 	}
+
+
+	public int updateExp(DataDTO dto) {
+		
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		DataDTO updateExp = new DataDTO();
+		
+		result = upAndDeleteDAO.updateExp(con, dto);
+		
+		if(result > 0) {
+			commit(con);
+			System.out.println("경험치 업데이트 후, 커밋!");
+		} else {
+			rollback(con);
+			System.out.println("경험치 업데이트 실패, 롤백!");
+		}
+		
+		close(con);
+		
+		return result;
+	}
 	
 public void insertSpinnerMem1(DataDTO dataDTO) {
 		
