@@ -21,7 +21,7 @@
     	, default
     	)
     </entry>
-        <entry key="checkId">
+    <entry key="checkId">
         SELECT
                COUNT(*)
           FROM USER_INFO A
@@ -91,10 +91,10 @@
     </entry>
     <entry key="showExp">
         SELECT
-              A.USER_NICKNAME
-            , A.USER_EXP 
-         FROM USER_INFO A
-        WHERE USER_ID = ?    
+               A.USER_NICKNAME
+             , A.USER_EXP 
+          FROM USER_INFO A
+         WHERE USER_ID = ?    
     </entry>
     
     <entry key="insertSpinner1">
