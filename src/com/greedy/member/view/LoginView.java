@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -57,15 +59,49 @@ public class LoginView extends JFrame {
 		btnLogin.setBounds(50, 250, 106, 50);
 		panel.add(btnLogin);
 		
-		JPasswordField Password = new JPasswordField(); //패스워드필드로 변경함
-		Password.setColumns(10); 
-		Password.setBounds(120, 170, 170, 35);
-		panel.add(Password);
+		JPasswordField password = new JPasswordField(); //패스워드필드로 변경함
+		password.setColumns(10); 
+		password.setBounds(120, 170, 170, 35);
+		panel.add(password);
 		
 		Image backimg = new ImageIcon("icon/background.png").getImage();
 		JLabel back = new JLabel(new ImageIcon(backimg));
 		back.setBounds(0, 0, 350, 550);
 		
+		// 비밀번호 입력후 키 이벤트를 이용해서 엔터키를 적용
+		password.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					id = text.getText();
+					String firstLoginCheck = "";
+					int changeLoginInformation = 0;
+					
+					firstLoginCheck = controller.loginCheck(text.getText(),password.getText());
+					
+					if(firstLoginCheck.trim().equals("Y")) {
+							JOptionPane.showMessageDialog(null, "메인 화면으로 이동합니다");
+							setVisible(false);
+							new mainmenu(text.getText());
+					}else if(firstLoginCheck.trim().equals("N")){
+						changeLoginInformation = controller.changeLoginInformation(id);
+						if(changeLoginInformation == 1) { //그래서 위의 조건문을 통과한 것은 오라클(쿼리문)에서 1행이 실행되었습니다 
+														  //여기서 1만 나오기 때문에 이 조건을 통과해 업데이트가 실행되고 아래의 코드가 실행된다.
+							JOptionPane.showMessageDialog(null, "운동 강도 선택 화면으로 이동합니다");
+							setVisible(false);
+							new Difficulty(text.getText());
+						}
+					} else {
+						JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해 주세요.");
+						setVisible(false);
+						new LoginView();
+					}
+				}
+				
+				
+			}
+		});
 		
 		panel.add(back);
 		
@@ -78,7 +114,7 @@ public class LoginView extends JFrame {
 				String firstLoginCheck = "";
 				int changeLoginInformation = 0;
 				
-				firstLoginCheck = controller.loginCheck(text.getText(),Password.getText());
+				firstLoginCheck = controller.loginCheck(text.getText(),password.getText());
 				
 				if(firstLoginCheck.trim().equals("Y")) {
 						JOptionPane.showMessageDialog(null, "메인 화면으로 이동합니다");
@@ -98,25 +134,6 @@ public class LoginView extends JFrame {
 					new LoginView();
 				}
 			}
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				String firstLoginCheck = "";
-//				firstLoginCheck = controller.loginCheck(text.getText());
-//				if(firstLoginCheck.trim().equals("Y")) {
-//					JOptionPane.showMessageDialog(null, "메인 화면으로 이동합니다");
-//					setVisible(false);
-//					new mainmenu();
-//				}else if(firstLoginCheck.trim().equals("N")){
-//					JOptionPane.showMessageDialog(null, "운동 강도 선택 화면으로 이동합니다");
-//					setVisible(false);
-//					new difficulty();
-//				} else {
-//					JOptionPane.showMessageDialog(null, "존재하지 않는 아이디입니다.");
-//					setVisible(false);
-//					new LoginView();
-//					
-//				}
-//			}
 
 		});
 		
