@@ -291,7 +291,7 @@ import com.greedy.member.model.service.MemberService;
 				if(value1>=1) {
 						dt.setId(userId);
 						dt.setNo1(value1);
-						dt.setExcode1("E11");
+						dt.setExcode1("E01");
 						bm.insertSpinnerMem1(dt);
 						bm.insertSpinnerMem21(dt);
 					}
@@ -300,7 +300,7 @@ import com.greedy.member.model.service.MemberService;
 				if(value2>=1) {
 					dt.setId(userId);
 					dt.setNo2(value2);
-					dt.setExcode2("E22");
+					dt.setExcode2("E02");
 					bm.insertSpinnerMem2(dt);
 					bm.insertSpinnerMem22(dt);
 				}
@@ -309,7 +309,7 @@ import com.greedy.member.model.service.MemberService;
 				if(value3>=1) {
 					dt.setId(userId);
 					dt.setNo3(value3);
-					dt.setExcode3("E3");
+					dt.setExcode3("E03");
 					bm.insertSpinnerMem3(dt);
 					bm.insertSpinnerMem23(dt);
 				}

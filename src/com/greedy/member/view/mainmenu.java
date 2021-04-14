@@ -75,7 +75,7 @@ public class mainmenu extends JFrame {
 	
        
        List<Map<String,Integer>> ExList = memberService.CheckEx(loginId);
-     //  System.out.println(ExList.get(0).get(""));
+       System.out.println(ExList);
        
        
        pm_item1.addActionListener(new ActionListener() {
