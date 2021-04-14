@@ -16,7 +16,7 @@ public class LoginController {
 
 		dataDTO = new DataDTO();
 
-		dataDTO.setId(id);
+		dataDTO.setId(id); //작성한 id값을 계속 가져가기 위해 작성한 코드
 
 		// DataDTO dataDTO = new DataDTO();
 

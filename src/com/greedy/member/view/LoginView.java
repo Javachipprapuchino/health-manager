@@ -27,7 +27,6 @@ public class LoginView extends JFrame {
 		this.setSize(350, 550);
 		setLocationRelativeTo(null); // 윈도우 창에서 가운데 화면으로 띄우는 역학을 한다.
 		JPanel panel = new JPanel();
-		//panel.setBorder(new EmptyBorder(5, 5, 5, 5)); 
 		setContentPane(panel);
 		this.setLayout(null);
 		
@@ -42,7 +41,7 @@ public class LoginView extends JFrame {
 		JTextField text = new JTextField();
 		text.setBounds(120, 252, 170, 35);
 		panel.add(text);
-		text.setColumns(10); //최대 columns 갯수만큼의 텍스트를 입력할 수 있는 입력공간을 만듭니다
+		text.setColumns(10); //최대 columns 갯수만큼의 텍스트를 입력할 수 있는 입력공간을 만듭니다.
 		
 		JButton btnJoin = new JButton("회원가입");
 		btnJoin.setBounds(200, 354, 104, 29);
