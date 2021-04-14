@@ -135,6 +135,40 @@ public class UpdateAndDeleteDAO {
 	}
 
 
+	public int updateExp(Connection con, DataDTO dto) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("updateExp");
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getId());
+			
+			result = pstmt.executeUpdate();
+			
+			System.out.println("결과값 : " + result);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		if(result > 0) {
+			System.out.println("경험치 업데이트 성공!");
+		} else {
+			System.out.println("경험치 업데이트 실패!");
+		}
+	
+		return result;
+				
+				
+	}
+
+
 
 	
 

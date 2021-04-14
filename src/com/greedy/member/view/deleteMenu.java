@@ -1,6 +1,8 @@
 package com.greedy.member.view;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
@@ -16,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,6 +31,7 @@ public class deleteMenu extends JFrame {
    JPanel jp = new JPanel();
    private Font f1,f2;
    private MemberService memberService = new MemberService();
+   
    
    String name1;
    String name2;
@@ -46,19 +50,19 @@ public class deleteMenu extends JFrame {
        this.dispose();
        this.setVisible(true);
        this.setLayout(null);
-       setLocationRelativeTo(null);
+       this.setLocationRelativeTo(null);
        // 팝업메뉴에 메뉴아이템 추가
        
 		
        List<Map<String,Integer>> ExList = memberService.CheckEx(loginId);
-       f1 = new Font("돋움",Font.PLAIN,15);
-       f2 = new Font("돋움",Font.PLAIN,20);
+       f1 = new Font("맑은 고딕",Font.PLAIN,15);
+       f2 = new Font("맑은 고딕",Font.BOLD,30);
        
-       JButton back = new JButton("뒤");
-       back.setLocation(0,0);
-       back.setSize(100,50);
-       add(back);
-       back.addActionListener(new ActionListener() {
+       JButton backb = new JButton("뒤");
+       backb.setLocation(0,0);
+       backb.setSize(100,50);
+       add(backb);
+       backb.addActionListener(new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -67,10 +71,14 @@ public class deleteMenu extends JFrame {
 			new mainmenu(loginId);
 		}
 	});
+       
+       Image backimg = new ImageIcon("icon/background.png").getImage(); //배경이미지
+       JLabel back = new JLabel(new ImageIcon(backimg));
+       back.setBounds(0,0,350,550); 
      
        
        JLabel jl1 = new JLabel("운동 삭제");
-       jl1.setLocation(120,60);
+       jl1.setLocation(100,60);
        jl1.setSize(200,40);
        add(jl1);
        jl1.setFont(f2);
@@ -78,6 +86,9 @@ public class deleteMenu extends JFrame {
        JButton jb1 = new JButton("아직 설정되지 않았습니다.");
        jb1.setLocation(30,150); //150만 수정
        jb1.setSize(200,40);
+       jb1.setBackground(Color.orange);
+       jb1.setFont(f1);
+       jb1.setFocusPainted(false);
        add(jb1);
        
        JButton jb11 = new JButton("삭제");
@@ -110,6 +121,9 @@ public class deleteMenu extends JFrame {
        JButton jb2 = new JButton("아직 설정되지 않았습니다.");
        jb2.setLocation(30,210); //150만 수정
        jb2.setSize(200,40);
+       jb2.setBackground(Color.orange);
+       jb2.setFont(f1);
+       jb2.setFocusPainted(false);
        add(jb2);
        
        JButton jb21 = new JButton("삭제");
@@ -141,6 +155,9 @@ public class deleteMenu extends JFrame {
        JButton jb3 = new JButton("아직 설정되지 않았습니다.");
        jb3.setLocation(30,270); //150만 수정
        jb3.setSize(200,40);
+       jb3.setBackground(Color.orange);
+       jb3.setFont(f1);
+       jb3.setFocusPainted(false);
        add(jb3);
        
        JButton jb31 = new JButton("삭제");
@@ -170,37 +187,37 @@ public class deleteMenu extends JFrame {
        
        //
        
-       JButton jb4 = new JButton("아직 설정되지 않았습니다.");
-       jb4.setLocation(30,330); //150만 수정
-       jb4.setSize(200,40);
-       add(jb4);
-       
-       JButton jb41 = new JButton("삭제");
-       jb41.setLocation(250,330);
-       jb41.setSize(60,40);
-       add(jb41);
-       
-       
-       jb41.addActionListener(new ActionListener() {
-   		
-   		@Override
-   		public void actionPerformed(ActionEvent e) {
-   			
-   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
-			String exName = name4;
-			System.out.println("삭제4 호출");
-			int result = new UpdateDeleteController().deleteCount(id,exName); 
-			//controller의 deleteCount에 id와 exName을 담아 호출한다
-			//리턴 받은 값을 result에 담는다
-			jb41.setEnabled(false);
-			
-			if(result > 0) {
-				
-				jb4.setText("아직 설정되지 않았습니다.");
-			}
-   			
-   		}
-       });
+//       JButton jb4 = new JButton("아직 설정되지 않았습니다.");
+//       jb4.setLocation(30,330); //150만 수정
+//       jb4.setSize(200,40);
+//       add(jb4);
+//       
+//       JButton jb41 = new JButton("삭제");
+//       jb41.setLocation(250,330);
+//       jb41.setSize(60,40);
+//       add(jb41);
+//       
+//       
+//       jb41.addActionListener(new ActionListener() {
+//   		
+//   		@Override
+//   		public void actionPerformed(ActionEvent e) {
+//   			
+//   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+//			String exName = name4;
+//			System.out.println("삭제4 호출");
+//			int result = new UpdateDeleteController().deleteCount(id,exName); 
+//			//controller의 deleteCount에 id와 exName을 담아 호출한다
+//			//리턴 받은 값을 result에 담는다
+//			jb41.setEnabled(false);
+//			
+//			if(result > 0) {
+//				
+//				jb4.setText("아직 설정되지 않았습니다.");
+//			}
+//   			
+//   		}
+//       });
        
        if(ExList.size()>=1) {
     	   for(String key : ExList.get(0).keySet()) {
@@ -224,12 +241,12 @@ public class deleteMenu extends JFrame {
            }
        }
        
-       if(ExList.size()>=4) {
-    	   for(String key : ExList.get(3).keySet()) {
-        	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
-        	   name4 = key.toString();
-           }
-       }
+//       if(ExList.size()>=4) {
+//    	   for(String key : ExList.get(3).keySet()) {
+//        	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
+//        	   name4 = key.toString();
+//           }
+//       }
        
        add(jp);
        
@@ -241,11 +258,15 @@ public class deleteMenu extends JFrame {
                System.exit(0);
            }
        });
+       
+       
       
        
     
 		  setSize(350, 550);
-	       setVisible(true);
+	      setVisible(true);
+		  setLocationRelativeTo(null);
+	      add(back);
 		
    }
    

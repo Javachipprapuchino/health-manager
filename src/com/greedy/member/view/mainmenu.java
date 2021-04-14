@@ -1,8 +1,11 @@
 package com.greedy.member.view;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -61,13 +65,14 @@ public class mainmenu extends JFrame {
        this.dispose();
        this.setVisible(true);
        this.setLayout(null);
-       setLocationRelativeTo(null);
+       this.setLocationRelativeTo(null);
        
        // 팝업메뉴에 메뉴아이템 추가
        pm.add(pm_item1);
        pm.addSeparator(); // 구분선
        pm.add(pm_item2);
        pm.add(pm_item3);
+	
        
        List<Map<String,Integer>> ExList = memberService.CheckEx(loginId);
      //  System.out.println(ExList.get(0).get(""));
@@ -83,7 +88,27 @@ public class mainmenu extends JFrame {
 
 		}
        });
+       //////
+       Image backimg = new ImageIcon("icon/background.png").getImage(); //배경이미지
+       JLabel back = new JLabel(new ImageIcon(backimg));
+       back.setBounds(0,0,350,550); 
        
+       
+       JButton backb = new JButton("뒤");
+       backb.setLocation(0,0);
+       backb.setSize(100,50);
+       backb.setFocusPainted(false);
+       add(backb);
+       backb.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			setVisible(false);
+			new Difficulty(loginId);
+		}
+	});
+     // ///// 
        pm_item3.addActionListener(new ActionListener() {
 		
 		@Override
@@ -94,11 +119,13 @@ public class mainmenu extends JFrame {
 		}
 	});
        
-       f1 = new Font("돋움",Font.PLAIN,15);
-       f2 = new Font("돋움",Font.PLAIN,20);
+       f1 = new Font("맑은 고딕",Font.PLAIN,15);
+       f2 = new Font("맑은 고딕",Font.BOLD,30);
        
        cal.setTime(date);
        int dayNum = cal.get(Calendar.DAY_OF_WEEK)-1;
+       
+		
        
        
        JLabel jlday = new JLabel(week[dayNum]);
@@ -112,7 +139,7 @@ public class mainmenu extends JFrame {
        jl.setFont(f1);
       
        JLabel jl1 = new JLabel("오늘의 운동");
-       jl1.setLocation(110,60);
+       jl1.setLocation(90,60);
        jl1.setSize(200,40);
        add(jl1);
        jl1.setFont(f2);
@@ -120,6 +147,9 @@ public class mainmenu extends JFrame {
        JButton jb1 = new JButton("아직 설정되지 않았습니다.");
        jb1.setLocation(30,150); //150만 수정
        jb1.setSize(200,40);
+       jb1.setBackground(Color.orange);
+       jb1.setFont(f1);
+       jb1.setFocusPainted(false);
        add(jb1);
        
        JButton jb11 = new JButton("완료");
@@ -134,7 +164,11 @@ public class mainmenu extends JFrame {
 			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
 			String exName = name1;
 			System.out.println("버튼1 호출");
-			new UpdateDeleteController().updateCount(id,exName); 
+			int result = new UpdateDeleteController().updateCount(id,exName);
+			System.out.println("결과값 : " + result);
+			if(result > 0) {
+				new UpdateDeleteController().updateExp(id);
+			}
 			jb11.setEnabled(false);
 			//controller의 updateCount에 id와 exName을 담아 호출한다
 			//리턴 받은 값을 result에 담는다
@@ -147,6 +181,9 @@ public class mainmenu extends JFrame {
        JButton jb2 = new JButton("아직 설정되지 않았습니다.");
        jb2.setLocation(30,210); //150만 수정
        jb2.setSize(200,40);
+       jb2.setFocusPainted(false);
+       jb2.setBackground(Color.orange);
+       jb2.setFont(f1);
        add(jb2);
        
        JButton jb21 = new JButton("완료");
@@ -161,7 +198,11 @@ public class mainmenu extends JFrame {
    			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
 			String exName = name2;
 			System.out.println("버튼2 호출");
-			new UpdateDeleteController().updateCount(id,exName); 
+			int result = new UpdateDeleteController().updateCount(id,exName);
+			System.out.println("결과값 : " + result);
+			if(result > 0) {
+				new UpdateDeleteController().updateExp(id);
+			}
 			jb21.setEnabled(false);
 			//controller의 updateCount에 id와 exName을 담아 호출한다
 			//리턴 받은 값을 result에 담는다
@@ -172,6 +213,9 @@ public class mainmenu extends JFrame {
        JButton jb3 = new JButton("아직 설정되지 않았습니다.");
        jb3.setLocation(30,270); //150만 수정
        jb3.setSize(200,40);
+       jb3.setFocusPainted(false);
+       jb3.setBackground(Color.orange);
+       jb3.setFont(f1);
        add(jb3);
        
        JButton jb31 = new JButton("완료");
@@ -186,39 +230,43 @@ public class mainmenu extends JFrame {
    			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
 			String exName = name3;
 			System.out.println("버튼3 호출");
-			new UpdateDeleteController().updateCount(id,exName); 
+			int result = new UpdateDeleteController().updateCount(id,exName);
+			System.out.println("결과값 : " + result);
+			if(result > 0) {
+				new UpdateDeleteController().updateExp(id);
+			}
 			jb31.setEnabled(false);
 			//controller의 updateCount에 id와 exName을 담아 호출한다
 			//리턴 받은 값을 result에 담는다
    		}
        });
        
-       //
+       // 앞의 운동 선택 페이지에 운동이 최대 3개로 설정되어있음
        
-       JButton jb4 = new JButton("아직 설정되지 않았습니다.");
-       jb4.setLocation(30,330); //150만 수정
-       jb4.setSize(200,40);
-       add(jb4);
-       
-       JButton jb41 = new JButton("완료");
-       jb41.setLocation(250,330);
-       jb41.setSize(60,40);
-       add(jb41);
-       
-       
-       jb41.addActionListener(new ActionListener() {
-   		
-   		@Override
-   		public void actionPerformed(ActionEvent e) {
-   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
-			String exName = name4;
-			System.out.println("버튼4 호출");
-			new UpdateDeleteController().updateCount(id,exName); 
-			jb41.setEnabled(false);
-			//controller의 updateCount에 id와 exName을 담아 호출한다
-			//리턴 받은 값을 result에 담는다
-   		}
-       });
+//       JButton jb4 = new JButton("아직 설정되지 않았습니다.");
+//       jb4.setLocation(30,330); //150만 수정
+//       jb4.setSize(200,40);
+//       add(jb4);
+//       
+//       JButton jb41 = new JButton("완료");
+//       jb41.setLocation(250,330);
+//       jb41.setSize(60,40);
+//       add(jb41);
+//       
+//       
+//       jb41.addActionListener(new ActionListener() {
+//   		
+//   		@Override
+//   		public void actionPerformed(ActionEvent e) {
+//   			String id = loginId; //현재 로그인중인 아이디 값을 가져온다
+//			String exName = name4;
+//			System.out.println("버튼4 호출");
+//			new UpdateDeleteController().updateCount(id,exName); 
+//			jb41.setEnabled(false);
+//			//controller의 updateCount에 id와 exName을 담아 호출한다
+//			//리턴 받은 값을 result에 담는다
+//   		}
+//       });
        
        
        
@@ -245,12 +293,12 @@ public class mainmenu extends JFrame {
            }
        }
        
-       if(ExList.size()>=4) {
-    	   for(String key : ExList.get(3).keySet()) {
-        	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
-        	   name4 = key.toString();
-           }
-       }
+//       if(ExList.size()>=4) {
+//    	   for(String key : ExList.get(3).keySet()) {
+//        	   jb4.setText(key+"  횟수 : "+ExList.get(3).get(key));
+//        	   name4 = key.toString();
+//           }
+//       }
        add(jp);
        add(jl);
        add(pm); // 팝업메뉴를 프레임에 추가
@@ -263,7 +311,7 @@ public class mainmenu extends JFrame {
                System.exit(0);
            }
        });
-      
+     
        //팝업메뉴 보여주기 이벤트
        this.addMouseListener(new MouseAdapter() {
 
@@ -280,6 +328,7 @@ public class mainmenu extends JFrame {
 		  setSize(350, 550);
 		  setLocationRelativeTo(null);
 	      setVisible(true);
+	      add(back);
 		
    }
    

@@ -31,6 +31,21 @@ public class UpdateDeleteController {
 		return registResult;
 		
 	}
+
+
+	public int updateExp(String id) {
+		
+		DataDTO dataDTO = new DataDTO();
+		dataDTO.setId(id);
+		
+		int registResult = memberservice.updateExp(dataDTO);
+		
+		return registResult;
+
+		
+	}
+	
+	
 	
 	
 
