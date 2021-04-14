@@ -88,6 +88,17 @@ public class mainmenu extends JFrame {
 
 		}
        });
+       
+       
+       pm_item2.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			setVisible(false);
+			new Difficulty(loginId);
+		}
+	});
        //////
        Image backimg = new ImageIcon("icon/background.png").getImage(); //배경이미지
        JLabel back = new JLabel(new ImageIcon(backimg));
