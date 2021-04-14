@@ -163,7 +163,10 @@ public class mainmenu extends JFrame {
        jb1.setFocusPainted(false);
        add(jb1);
        
-       JButton jb11 = new JButton("완료");
+       ImageIcon okCon = new ImageIcon("icon/체크박스2.png");
+       JButton jb11 = new JButton(okCon);
+       jb11.setContentAreaFilled(false);
+       jb11.setBorderPainted(false);
        jb11.setLocation(250,150);
        jb11.setSize(60,40);
        add(jb11);
@@ -197,7 +200,10 @@ public class mainmenu extends JFrame {
        jb2.setFont(f1);
        add(jb2);
        
-       JButton jb21 = new JButton("완료");
+       ImageIcon okCon2 = new ImageIcon("icon/ok.png");
+       JButton jb21 = new JButton(okCon);
+       jb21.setContentAreaFilled(false);
+       jb21.setBorderPainted(false);
        jb21.setLocation(250,210);
        jb21.setSize(60,40);
        add(jb21);
@@ -229,7 +235,9 @@ public class mainmenu extends JFrame {
        jb3.setFont(f1);
        add(jb3);
        
-       JButton jb31 = new JButton("완료");
+       JButton jb31 = new JButton(okCon);
+       jb31.setContentAreaFilled(false);
+       jb31.setBorderPainted(false);
        jb31.setLocation(250,270);
        jb31.setSize(60,40);
        add(jb31);

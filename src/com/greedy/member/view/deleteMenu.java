@@ -58,9 +58,12 @@ public class deleteMenu extends JFrame {
        f1 = new Font("맑은 고딕",Font.PLAIN,15);
        f2 = new Font("맑은 고딕",Font.BOLD,30);
        
-       JButton backb = new JButton("뒤");
-       backb.setLocation(0,0);
-       backb.setSize(100,50);
+       ImageIcon backCon = new ImageIcon("icon/back.png");
+       JButton backb = new JButton(backCon);
+       backb.setLocation(0,461);
+       backb.setSize(70,50);
+       backb.setContentAreaFilled(false);
+       backb.setBorderPainted(false);
        add(backb);
        backb.addActionListener(new ActionListener() {
 		
@@ -91,7 +94,10 @@ public class deleteMenu extends JFrame {
        jb1.setFocusPainted(false);
        add(jb1);
        
-       JButton jb11 = new JButton("삭제");
+       ImageIcon deCon = new ImageIcon("icon/삭제박스.png");
+       JButton jb11 = new JButton(deCon);
+       jb11.setContentAreaFilled(false);
+       jb11.setBorderPainted(false);
        jb11.setLocation(250,150);
        jb11.setSize(60,40);
        add(jb11);
@@ -126,7 +132,9 @@ public class deleteMenu extends JFrame {
        jb2.setFocusPainted(false);
        add(jb2);
        
-       JButton jb21 = new JButton("삭제");
+       JButton jb21 = new JButton(deCon);
+       jb21.setContentAreaFilled(false);
+       jb21.setBorderPainted(false);
        jb21.setLocation(250,210);
        jb21.setSize(60,40);
        add(jb21);
@@ -160,7 +168,9 @@ public class deleteMenu extends JFrame {
        jb3.setFocusPainted(false);
        add(jb3);
        
-       JButton jb31 = new JButton("삭제");
+       JButton jb31 = new JButton(deCon);
+       jb31.setContentAreaFilled(false);
+       jb31.setBorderPainted(false);
        jb31.setLocation(250,270);
        jb31.setSize(60,40);
        add(jb31);

@@ -42,7 +42,10 @@ public class mypage extends JFrame {
         f2 = new Font("맑은 고딕",Font.BOLD,30);
         f3 = new Font("맑은 고딕",Font.PLAIN,20);
         
-        JButton backb = new JButton("뒤");
+        ImageIcon backCon = new ImageIcon("icon/back.png");
+        JButton backb = new JButton(backCon);
+        backb.setContentAreaFilled(false);
+        backb.setBorderPainted(false);
         backb.setLocation(0,461);
         backb.setSize(100,50);
         add(backb);

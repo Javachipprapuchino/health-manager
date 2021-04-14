@@ -43,6 +43,7 @@ public class JoinView extends JFrame {
 		panel.setLayout(null);
 		setContentPane(panel);
 
+		
 		JLabel join = new JLabel("JOIN");
 		join.setFont(font1);
 		join.setBounds(130, -55, 221, 220);
@@ -90,7 +91,8 @@ public class JoinView extends JFrame {
 		Username.setBounds(120, 250, 186, 35);
 		panel.add(Username);
 
-		JButton button = new JButton("가입");
+		ImageIcon joinCon = new ImageIcon("icon/가입.png"); //가입버튼이미지
+		JButton button = new JButton(joinCon);
 		button.setBounds(120, 300, 139, 29);
 		panel.add(button);
 

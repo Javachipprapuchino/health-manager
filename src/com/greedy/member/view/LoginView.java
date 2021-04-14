@@ -47,11 +47,13 @@ public class LoginView extends JFrame {
 		panel.add(text);
 		text.setColumns(10); //최대 columns 갯수만큼의 텍스트를 입력할 수 있는 입력공간을 만듭니다.
 		
-		JButton btnJoin = new JButton("회원가입");
+		ImageIcon joinCon = new ImageIcon("icon/join.png"); //회원가입버튼이미지
+		JButton btnJoin = new JButton(joinCon);
 		btnJoin.setBounds(200, 250, 106, 50);
 		panel.add(btnJoin);
 	
-		JButton btnLogin = new JButton("로그인");
+		ImageIcon loginCon = new ImageIcon("icon/login.png"); //로그인버튼이미지
+		JButton btnLogin = new JButton(loginCon);
 		btnLogin.setBounds(50, 250, 106, 50);
 		panel.add(btnLogin);
 		
@@ -63,6 +65,7 @@ public class LoginView extends JFrame {
 		Image backimg = new ImageIcon("icon/background.png").getImage();
 		JLabel back = new JLabel(new ImageIcon(backimg));
 		back.setBounds(0, 0, 350, 550);
+		
 		
 		panel.add(back);
 		
