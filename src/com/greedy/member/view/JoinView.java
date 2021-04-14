@@ -75,6 +75,22 @@ public class JoinView extends JFrame {
 		ID.setBounds(120, 106, 186, 35);
 		panel.add(ID);
 		
+		ImageIcon backCon = new ImageIcon("icon/back.png");
+	    JButton backb = new JButton(backCon);
+	    backb.setLocation(0,461);
+	    backb.setSize(70,50);
+	    backb.setContentAreaFilled(false);
+	    backb.setBorderPainted(false);
+	    add(backb);
+	    backb.addActionListener(new ActionListener() {
+			
+	    	@Override
+			public void actionPerformed(ActionEvent e) {
+	    		new LoginView();
+				dispose();
+			}
+		});
+		
 		
 		Password = new JPasswordField();
 		Password.setColumns(10);
@@ -154,6 +170,8 @@ public class JoinView extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
+	
+	
 
 	public Map<String, String> inputMember(String id, String pwd, String name) {
 

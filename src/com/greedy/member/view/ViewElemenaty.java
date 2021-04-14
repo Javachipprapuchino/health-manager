@@ -132,8 +132,8 @@ import com.greedy.member.model.service.MemberService;
 	JButton lb11 = new JButton(lookCon);
     lb11.setContentAreaFilled(false);
     lb11.setBorderPainted(false);
-	lb11.setLocation(260, 100);
-	lb11.setSize(50, 50);
+	lb11.setLocation(230, 110);
+	lb11.setSize(70, 70);
 	lb11.addMouseListener(new MouseListener() {
 		
 		@Override
@@ -185,9 +185,11 @@ import com.greedy.member.model.service.MemberService;
 	   spinner2.setLocation(140,250);
 	   spinner2.setSize(60,20);		
 	   
-	   JLabel lb21 = new JLabel("자세히");
-		lb21.setLocation(260, 200);
-		lb21.setSize(80, 80);
+		JButton lb21 = new JButton(lookCon);
+	    lb21.setContentAreaFilled(false);
+	    lb21.setBorderPainted(false);
+		lb21.setLocation(230, 220);
+		lb21.setSize(70, 70);
 		lb21.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -241,9 +243,11 @@ import com.greedy.member.model.service.MemberService;
 	   spinner3.setLocation(140,350);
 	   spinner3.setSize(60,20);
 	   
-	   JLabel lb31 = new JLabel("자세히");
-		lb31.setLocation(260, 300);
-		lb31.setSize(80, 80);
+		JButton lb31 = new JButton(lookCon);
+	    lb31.setContentAreaFilled(false);
+	    lb31.setBorderPainted(false);
+		lb31.setLocation(230, 320);
+		lb31.setSize(70, 70);
 		lb31.addMouseListener(new MouseListener() {
 				
 				@Override
@@ -444,9 +448,12 @@ public class popup1 extends JFrame{
 			background.setLayout(null);
 			
 			
-			JButton btn4 = new JButton("자세히 배우기");
-			btn4.setLocation(40, 100);
-			btn4.setSize(250, 70);
+			ImageIcon deepCon = new ImageIcon("icon/play.png");
+			JButton btn4 = new JButton(deepCon);
+		    btn4.setContentAreaFilled(false);
+		    btn4.setBorderPainted(false);
+			btn4.setLocation(18, 24);
+			btn4.setSize(300, 300);
 			btn4.addActionListener(new ActionListener() {
 				
 				@Override
