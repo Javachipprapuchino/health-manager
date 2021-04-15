@@ -155,7 +155,7 @@ public class mainmenu extends JFrame {
        add(jl1);
        jl1.setFont(f2);
        
-       JButton jb1 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb1 = new JButton("설정되지 않았습니다.");
        jb1.setLocation(30,150); //150만 수정
        jb1.setSize(200,40);
        jb1.setBackground(Color.orange);
@@ -192,7 +192,7 @@ public class mainmenu extends JFrame {
        
        //
        
-       JButton jb2 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb2 = new JButton("설정되지 않았습니다.");
        jb2.setLocation(30,210); //150만 수정
        jb2.setSize(200,40);
        jb2.setFocusPainted(false);
@@ -227,7 +227,7 @@ public class mainmenu extends JFrame {
        });
        //
        
-       JButton jb3 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb3 = new JButton("설정되지 않았습니다.");
        jb3.setLocation(30,270); //150만 수정
        jb3.setSize(200,40);
        jb3.setFocusPainted(false);

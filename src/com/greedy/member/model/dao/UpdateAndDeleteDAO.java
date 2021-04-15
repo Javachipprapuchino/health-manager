@@ -34,9 +34,6 @@ public class UpdateAndDeleteDAO {
 		ResultSet rset = null;
 		String result = "";
 		
-		
-//		String exCode = "";
-		
 		String query = prop.getProperty("selectExName");
 		
 		try {

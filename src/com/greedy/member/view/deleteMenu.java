@@ -29,7 +29,7 @@ import com.greedy.member.model.service.MemberService;
 
 public class deleteMenu extends JFrame {
    JPanel jp = new JPanel();
-   private Font f1,f2;
+   private Font f1,f2,f3;
    private MemberService memberService = new MemberService();
    
    
@@ -57,6 +57,7 @@ public class deleteMenu extends JFrame {
        List<Map<String,Integer>> ExList = memberService.CheckEx(loginId);
        f1 = new Font("맑은 고딕",Font.PLAIN,15);
        f2 = new Font("맑은 고딕",Font.BOLD,30);
+       f3 = new Font("맑은 고딕",Font.BOLD,10);
        
        ImageIcon backCon = new ImageIcon("icon/back.png");
        JButton backb = new JButton(backCon);
@@ -86,7 +87,7 @@ public class deleteMenu extends JFrame {
        add(jl1);
        jl1.setFont(f2);
        
-       JButton jb1 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb1 = new JButton("설정되지 않았습니다.");
        jb1.setLocation(30,150); //150만 수정
        jb1.setSize(200,40);
        jb1.setBackground(Color.orange);
@@ -116,15 +117,14 @@ public class deleteMenu extends JFrame {
 			jb11.setEnabled(false);
 			
 			if(result > 0) {
-				
-				jb1.setText("아직 설정되지 않았습니다.");
+				jb1.setText("설정되지 않았습니다.");
 			}
 		}
        });
        
        //
        
-       JButton jb2 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb2 = new JButton("설정되지 않았습니다.");
        jb2.setLocation(30,210); //150만 수정
        jb2.setSize(200,40);
        jb2.setBackground(Color.orange);
@@ -154,13 +154,13 @@ public class deleteMenu extends JFrame {
 			
 			if(result > 0) {
 				
-				jb2.setText("아직 설정되지 않았습니다.");
+				jb2.setText("설정되지 않았습니다.");
 			}
    		}
        });
        //
        
-       JButton jb3 = new JButton("아직 설정되지 않았습니다.");
+       JButton jb3 = new JButton("설정되지 않았습니다.");
        jb3.setLocation(30,270); //150만 수정
        jb3.setSize(200,40);
        jb3.setBackground(Color.orange);
@@ -190,7 +190,7 @@ public class deleteMenu extends JFrame {
 			
 			if(result > 0) {
 				
-				jb3.setText("아직 설정되지 않았습니다.");
+				jb3.setText("설정되지 않았습니다.");
 			}
    		}
        });
