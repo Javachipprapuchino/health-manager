@@ -113,7 +113,7 @@ public class mypage extends JFrame {
         progress.setStringPainted(true);
         progress.setLocation(100,95);
         progress.setSize(130,35);
-        progress.setValue(dataDTO.getExp()/10000);
+        progress.setValue(dataDTO.getExp()/1000);
         frame.add(progress);
         
         frame.pack();
