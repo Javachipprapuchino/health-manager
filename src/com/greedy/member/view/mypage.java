@@ -26,7 +26,6 @@ public class mypage extends JFrame {
 		
 		JFrame frame = new JFrame("마이페이지");
 
-//		frame.setLocationRelativeTo(null);
 
 		
 		frame.setLocation(800,250);				  //출력 위치를 화면 좌상단에 위치
@@ -53,7 +52,6 @@ public class mypage extends JFrame {
  		
  		@Override
  		public void actionPerformed(ActionEvent e) {
- 			// TODO Auto-generated method stub
  			frame.dispose();
  			new mainmenu(loginId);
  		}
@@ -70,7 +68,6 @@ public class mypage extends JFrame {
 			model.addRow(new Object[] { listDTO.get(i).getExerciseName(), listDTO.get(i).getExerciseCount() });
 		};
 
-//        JTable table = new JTable(contents, header);
        
         JScrollPane jscp1 = new JScrollPane(table); //이런식으로 생성시에 테이블을 넘겨주어야 정상적으로 볼 수 있다.
                                                     //jscp1.add(table); 과 같이 실행하면, 정상적으로 출력되지 않음.
@@ -121,11 +118,7 @@ public class mypage extends JFrame {
         frame.add(backb);
         frame.add(back);
         frame.setLocationRelativeTo(null);
-       // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //닫기버튼 클릭시 프로그램 종료
         
 	}
 
-//    public static void main(String args[]){
-//        new mypage();
-//    }
 }

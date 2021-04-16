@@ -1,7 +1,7 @@
 package com.greedy.member.model.dto;
 
 public class DataDTO {
-	
+
 	private int code;
 	private String id;
 	private String pwd;
@@ -17,13 +17,13 @@ public class DataDTO {
 	private String excode1;
 	private String excode2;
 	private String excode3;
-	
-	
+
+
 	private String exerciseName;
 	private String exerciseCount;
 	private String nickName;
 	private int exp;
-	
+
 	public DataDTO() {
 		super();
 	}
@@ -215,8 +215,8 @@ public class DataDTO {
 	}
 
 
-	
-	
-	
+
+
+
 
 }
