@@ -206,79 +206,62 @@ public class MemberService {
 
 		return result;
 	}
-	
+
 
 	public void insertSpinnerMem1(DataDTO dataDTO) {
 
 		Connection con = getConnection();
 
-		//		int result = 0;
-
-		/* result = */datadao.insertSpinner1(con, dataDTO);
+		datadao.insertSpinner1(con, dataDTO);
 
 		close(con);
 
-		//		return result;
 	}
 	public void insertSpinnerMem2(DataDTO dataDTO) {
 
 		Connection con = getConnection();
 
-		//		int result = 0;
-
-		/* result = */datadao.insertSpinner2(con, dataDTO);
+		datadao.insertSpinner2(con, dataDTO);
 
 		close(con);
 
-		//		return result;
 	}
 	public void insertSpinnerMem3(DataDTO dataDTO) {
 
 		Connection con = getConnection();
 
-		//		int result = 0;
-
-		/* result = */ datadao.insertSpinner3(con, dataDTO);
+		datadao.insertSpinner3(con, dataDTO);
 
 		close(con);
 
-		//		return result;
 	}
 	public void insertSpinnerMem21(DataDTO dataDTO) {
 
 		Connection con = getConnection();
 
-		//		int result = 0;
 
-		/* result = */datadao.insertSpinner21(con, dataDTO);
+		datadao.insertSpinner21(con, dataDTO);
 
 		close(con);
 
-		//		return result;
 	}
 	public void insertSpinnerMem22(DataDTO dataDTO) {
 
 		Connection con = getConnection();
 
-		//		int result = 0;
-
-		/* result = */datadao.insertSpinner22(con, dataDTO);
+		datadao.insertSpinner22(con, dataDTO);
 
 		close(con);
 
-		//		return result;
 	}
 	public void insertSpinnerMem23(DataDTO dataDTO) {
 
 		Connection con = getConnection();
 
-		//		int result = 0;
-
-		/* result = */ datadao.insertSpinner23(con, dataDTO);
+		datadao.insertSpinner23(con, dataDTO);
 
 		close(con);
 
-		//		return result;
 	}
 
 
