@@ -47,7 +47,7 @@ public class JoinView extends JFrame {
 		JLabel join = new JLabel("JOIN");
 		join.setFont(font1);
 		join.setBounds(130, -55, 221, 220);
-		panel.add(join); // 패널에 라벨을 붙착한거다.
+		panel.add(join);
 		
 
 		JLabel id = new JLabel("아이디");
@@ -170,8 +170,6 @@ public class JoinView extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-	
-	
 
 	public Map<String, String> inputMember(String id, String pwd, String name) {
 

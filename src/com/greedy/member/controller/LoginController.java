@@ -16,14 +16,12 @@ public class LoginController {
 
 		dataDTO = new DataDTO();
 
-		dataDTO.setId(id); //작성한 id값을 계속 가져가기 위해 작성한 코드
-
-		// DataDTO dataDTO = new DataDTO();
+		dataDTO.setId(id);
 
 		dataDTO = memberService.loginConfirm(dataDTO);
 
 		String firstLoginCheck = "";
-		if (dataDTO != null) { // dataDTO가 널이 아닐경우 view안에 작성한 비밀번호와 db안에 있는 비밀번호가 같으면 y/n을 가지고 뷰의 조건문으로 가는 코드
+		if (dataDTO != null) { 
 			if (dataDTO.getPwd().equals(pwd)) {
 				firstLoginCheck = dataDTO.getConfirm();
 			}
@@ -40,8 +38,7 @@ public class LoginController {
 
 		dataDTO.setId(id);
 
-		int result = memberService.changeLoginInformation(dataDTO); // dao에 있는 값을 여기 result안에 담아준다.
-
+		int result = memberService.changeLoginInformation(dataDTO); 
 		return result;
 
 	}
@@ -63,8 +60,6 @@ public class LoginController {
 		dataDTO = new DataDTO();
 
 		dataDTO.setId(id);
-
-		// DataDTO dataDTO = new DataDTO();
 
 		dataDTO = memberService.showExp(dataDTO);
 

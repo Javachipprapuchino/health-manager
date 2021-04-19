@@ -30,7 +30,7 @@ public class DataDAO {
 		}
 	}
 
-	public int insertData(Connection con, DataDTO dto) { //시퀀스 NEXTVAL을 사용하여 1부터 시작하여 insert 쿼리가 다시 작동시 자동으로 다음값이 들어가게끔 하고 그다음엔 ?를 세개를 써서 우리가 입력한 값을 insert해주는 코드
+	public int insertData(Connection con, DataDTO dto) { // 회원가입에서 기입한 정보 insert 해주는 기능 (원석)
 
 
 		PreparedStatement pstmt = null;
@@ -41,11 +41,11 @@ public class DataDAO {
 
 			String query = prop.getProperty("insertData");
 
-			pstmt = con.prepareStatement(query); //작성한 쿼리문을 실행시켜주는 코드
+			pstmt = con.prepareStatement(query); 
 
-			pstmt.setString(1, dto.getId()); // 회원가입view에서 textField안에 작성한 값을 DB에 넣어주는 코드
-			pstmt.setString(2, dto.getPwd()); // 회원가입view에서 PasswordField안에 작성한 값을 DB에 넣어주는 코드
-			pstmt.setString(3, dto.getName()); // 회원가입view에서 textField안에 작성한 값을 DB에 넣어주는 코드
+			pstmt.setString(1, dto.getId()); 
+			pstmt.setString(2, dto.getPwd()); 
+			pstmt.setString(3, dto.getName()); 
 
 			result = pstmt.executeUpdate();
 
@@ -60,7 +60,7 @@ public class DataDAO {
 		return result;
 	}
 
-	public int checkId(Connection con,DataDTO dto) {
+	public int checkId(Connection con,DataDTO dto) { // 회원가입시 중복된 아이디 체크해주는 기능 (원석)
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null; 
@@ -70,7 +70,7 @@ public class DataDAO {
 
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, dto.getId()); // 왜빠져야 하나? 이거는 ? 물음표 쓸 때 사용한다.
+			pstmt.setString(1, dto.getId());
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
 				if(rset.getInt(1) > 0){
@@ -91,22 +91,21 @@ public class DataDAO {
 
 	}
 
-	public DataDTO loginConfirm(Connection con,DataDTO dto) { // 아이디와 비밀번호도 같아야 로그인 가능하게하는 기능
+	public DataDTO loginConfirm(Connection con,DataDTO dto) { // 아이디와 비밀번호도 같아야 로그인 가능하게하는 기능 (원석)
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
 		String query = prop.getProperty("loginConfirm");
-		//		DataDTO loginInformation = new DataDTO(); //이렇게 설정한 이유는 아이디와 
 		DataDTO loginInformation = null;
 		try {
-			pstmt = con.prepareStatement(query); //작성한 쿼리문을 실행시켜주는 코드
-			pstmt.setString(1, dto.getId()); //쿼리문 ? 안에 view에서 로그인시 텍스트 필드에 작성한 id를 넣는 코드입니다.
-			rset = pstmt.executeQuery(); //작성한 셀렉트 구문을 실행하고 DB에서 나오는 값을 그 값을 rset으로 넣어줍니다.
+			pstmt = con.prepareStatement(query); 
+			pstmt.setString(1, dto.getId()); 
+			rset = pstmt.executeQuery(); 
 			if(rset.next()) {
 				loginInformation = new DataDTO();
-				loginInformation.setConfirm(rset.getString(1)); // 내가 설정한 쿼리문에 있는 Y/N 값을 가져오기 위해 작성한 코드 
-				loginInformation.setPwd(rset.getString(2)); // 내가 설정한 쿼리문에 있는 비밀번호 값을 가져오기 위해 작성한 코드 
+				loginInformation.setConfirm(rset.getString(1)); 
+				loginInformation.setPwd(rset.getString(2)); 
 			} 
 
 		} catch (SQLException e) {
@@ -151,7 +150,7 @@ public class DataDAO {
 
 	}
 
-	public int changeLoginInformation(Connection con,DataDTO dto) { //y/n바꿔주는 업데이트문
+	public int changeLoginInformation(Connection con,DataDTO dto) { // y/n바꿔주는 기능 업데이트문 (원석)
 
 		PreparedStatement pstmt = null;
 		int changeLoginInformation = 0;
@@ -159,10 +158,10 @@ public class DataDAO {
 		String query = prop.getProperty("changeLoginInformation");
 
 		try {
-			pstmt = con.prepareStatement(query); //작성한 쿼리문을 실행을 시킨다.
-			pstmt.setString(1, dto.getId()); // ? 안에 로그인view에서 작성한 id를 넣는다.
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, dto.getId()); 
 
-			changeLoginInformation = pstmt.executeUpdate(); //update쿼리문이기 때문에 executeUpdate()를 사용했습니다.
+			changeLoginInformation = pstmt.executeUpdate(); 
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -174,7 +173,7 @@ public class DataDAO {
 		return changeLoginInformation;
 	}
 
-	public List<DataDTO> updateInformation(Connection con,DataDTO dto) {// 마이페이지에서 사용하는 리스트에 값 넣어주기
+	public List<DataDTO> updateInformation(Connection con,DataDTO dto) { // 운동 이름과 횟수를 마이페이에 올려주는 기능 (원석)
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -208,7 +207,7 @@ public class DataDAO {
 		return List;
 	}
 
-	public DataDTO showExp(Connection con, DataDTO dto) {// 경험치 올려주는 기능
+	public DataDTO showExp(Connection con, DataDTO dto) {// 경험치 올려주는 기능 (원석)
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -217,11 +216,11 @@ public class DataDAO {
 		DataDTO showExp = null;
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, dto.getId()); // 쿼리문 ? 안에 view id텍스트 필드에서 적은 id를 넣는 문장이다.
-			rset = pstmt.executeQuery(); // 작성한 셀렉트 구문을 실행하고 그 값을 rset으로 넣어줍니다.
+			pstmt.setString(1, dto.getId()); 
+			rset = pstmt.executeQuery(); 
 			if (rset.next()) {
 				showExp = new DataDTO();
-				showExp.setNickName(rset.getString(1)); //id에 맞는 값을 dbd
+				showExp.setNickName(rset.getString(1)); 
 				showExp.setExp(rset.getInt(2));
 			}
 

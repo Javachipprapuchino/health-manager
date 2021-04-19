@@ -122,8 +122,7 @@ public class LoginView extends JFrame {
 						new mainmenu(text.getText());
 				}else if(firstLoginCheck.trim().equals("N")){
 					changeLoginInformation = controller.changeLoginInformation(id);
-					if(changeLoginInformation == 1) { //그래서 위의 조건문을 통과한 것은 오라클(쿼리문)에서 1행이 실행되었습니다 
-													  //여기서 1만 나오기 때문에 이 조건을 통과해 업데이트가 실행되고 아래의 코드가 실행된다.
+					if(changeLoginInformation == 1) { 
 						JOptionPane.showMessageDialog(null, "운동 강도 선택 화면으로 이동합니다");
 						setVisible(false);
 						new Difficulty(text.getText());
